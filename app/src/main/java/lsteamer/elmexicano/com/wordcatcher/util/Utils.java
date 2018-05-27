@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import static android.support.v4.util.Preconditions.checkNotNull;
 
 /**
@@ -25,5 +28,18 @@ public class Utils {
         transaction.add(frameId, fragment);
         transaction.commit();
     }
+
+    public static String inputStreamToString(InputStream inputStream) {
+        try {
+            byte[] bytes = new byte[inputStream.available()];
+            inputStream.read(bytes, 0, bytes.length);
+            String json = new String(bytes);
+            return json;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+
 
 }
