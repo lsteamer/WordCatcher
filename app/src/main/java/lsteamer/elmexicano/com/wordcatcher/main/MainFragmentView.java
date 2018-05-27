@@ -7,10 +7,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import butterknife.BindView;
 import lsteamer.elmexicano.com.wordcatcher.R;
 
 public class MainFragmentView extends Fragment implements MainContract.ViewLayer {
+
+
+    // View Elements that we will use
+    @BindView(R.id.timerTextView) TextView timerTextView;
+    @BindView(R.id.scoreTextView) TextView scoreTextView;
+    @BindView(R.id.resultTextView) TextView resultTextView;
+    @BindView(R.id.fallingTextView) TextView fallingTextView;
+    @BindView(R.id.matchTextView) TextView matchTextView;
+    @BindView(R.id.wrongButton) Button wrongButton;
+    @BindView(R.id.correctButton) Button correctButton;
 
 
     public MainFragmentView(){

@@ -5,7 +5,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import lsteamer.elmexicano.com.wordcatcher.R;
 import lsteamer.elmexicano.com.wordcatcher.main.MainFragmentView;
