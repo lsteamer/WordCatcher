@@ -5,7 +5,7 @@ public interface MainContract {
     interface ViewLayer{
         void setPresenter(MainContract.PresenterLayer presenter);
 
-        void updatetScreenText(String s);
+        void updateScreenText(String s);
     }
 
     interface PresenterLayer{

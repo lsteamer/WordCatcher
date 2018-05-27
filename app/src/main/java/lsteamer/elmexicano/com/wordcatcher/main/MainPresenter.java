@@ -2,13 +2,17 @@ package lsteamer.elmexicano.com.wordcatcher.main;
 
 import android.os.CountDownTimer;
 
+import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
+
 public class MainPresenter implements MainContract.PresenterLayer {
 
 
-    MainContract.ViewLayer vLayer;
+    private MainContract.ViewLayer vLayer;
+    private WordModel model;
 
-    MainPresenter(MainContract.ViewLayer view, UICountDownTimer timer){
+    MainPresenter(MainContract.ViewLayer view, WordModel wordModel, UICountDownTimer timer){
         this.vLayer = view;
+        this.model = wordModel;
         vLayer.setPresenter(this);
 
         timer.attach(this.vLayer);
@@ -32,7 +36,7 @@ class DefaultCountDownTimer implements MainPresenter.UICountDownTimer {
             @Override
             public void onTick(long l) {
                 //Update the Timer
-                view.updatetScreenText(String.valueOf(l/1000));
+                view.updateScreenText(String.valueOf(l/1000));
 
             }
 

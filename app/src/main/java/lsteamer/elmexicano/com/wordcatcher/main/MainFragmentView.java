@@ -96,7 +96,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     // Updating the screen text. (atm, gets only the timer)
     @Override
-    public void updatetScreenText(String s) {
+    public void updateScreenText(String s) {
         timerTextView.setText(s);
     }
 

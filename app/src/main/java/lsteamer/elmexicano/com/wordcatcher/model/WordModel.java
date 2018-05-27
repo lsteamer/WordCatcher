@@ -6,12 +6,21 @@ import java.util.ArrayList;
 
 public class WordModel  {
 
+    @SerializedName("list")
+    public ArrayList<WordPair> list;
+
+    public String getEnglishElement(int position){
+        return list.get(position).textEng;
+    }
+
+    public String getSpanishElement(int position){
+        return list.get(position).textSpa;
+    }
+
     public ArrayList<WordPair> getList() {
         return list;
     }
 
-    @SerializedName("list")
-    public ArrayList<WordPair> list;
 
     static public class WordPair {
         @SerializedName("text_eng")

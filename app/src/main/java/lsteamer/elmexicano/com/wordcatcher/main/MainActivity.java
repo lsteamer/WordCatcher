@@ -36,28 +36,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void startGame(View view){
+    protected void startGame(View view) {
 
-        /*
+        // Reading the json
+        String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
+        WordModel model = new Gson().fromJson(myJson, WordModel.class);
+
+
 
         //Hide the first screen and show the game screen
         coordinatorLayout.setVisibility(View.VISIBLE);
         preLayout.setVisibility(View.GONE);
 
         mView = (MainFragmentView) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-        if(mView == null){
+        if (mView == null) {
             mView = MainFragmentView.newInstance();
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
 
-        mPresenter = new MainPresenter(mView, new DefaultCountDownTimer());
-
-*/
-
-        String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
-        WordModel model = new Gson().fromJson(myJson, WordModel.class);
-
-        Log.d(ACTIVITY_TAG, " some"+ model.list.get(0).textEng);
+        mPresenter = new MainPresenter(mView, model, new DefaultCountDownTimer());
 
 
     }

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class GameState {
 
-    private int timer, score;
+    private int score;
     private boolean matching;
+
+    private String wordEnglish, wordSpanish;
 
     private ArrayList<WordModel.WordPair> list;
 
-    public GameState(int timer, int score, ArrayList<WordModel.WordPair> list) {
-        this.timer = timer;
+    public GameState(int score, ArrayList<WordModel.WordPair> list) {
         this.score = score;
         this.list = list;
         this.matching = true;
@@ -24,13 +25,6 @@ public class GameState {
         this.matching = matching;
     }
 
-    public String getTimerString() {
-        return String.valueOf(timer);
-    }
-
-    public void setTimer(int timer) {
-        this.timer = timer;
-    }
 
     public String getScoreString() {
         return String.valueOf(score);
@@ -48,11 +42,19 @@ public class GameState {
         this.list = list;
     }
 
-    public String getEnglishElement(int position){
-        return list.get(position).textEng;
+    public String getWordEnglish() {
+        return wordEnglish;
     }
 
-    public String getSpanishElement(int position){
-        return list.get(position).textSpa;
+    public void setWordEnglish(String wordEnglish) {
+        this.wordEnglish = wordEnglish;
+    }
+
+    public String getWordSpanish() {
+        return wordSpanish;
+    }
+
+    public void setWordSpanish(String wordSpanish) {
+        this.wordSpanish = wordSpanish;
     }
 }
