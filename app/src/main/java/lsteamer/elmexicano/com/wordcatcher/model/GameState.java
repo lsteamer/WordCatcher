@@ -6,7 +6,7 @@ public class GameState {
 
     static final private String SUCCESS = "Correct!";
     static final private String FAILURE = "Wrong";
-    static final private String GO = "Go!";
+    static final private String GO = "Let's go!";
 
     private int score, rounds, sizeOfArray;
     private boolean matching, active, success;
@@ -45,7 +45,7 @@ public class GameState {
     }
 
     public String getSuccess() {
-        if(rounds==0)
+        if(rounds==1)
             return GO;
         else if (success)
             return SUCCESS;

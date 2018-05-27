@@ -89,11 +89,16 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     @OnClick(R.id.wrongButton)
     void onClickWrongButton() {
         mPresenter.checkResult(false);
+
+        fallingTextView.startAnimation(animationReset);
     }
 
     @OnClick(R.id.correctButton)
     void onClickCorrectButton() {
         mPresenter.checkResult(true);
+
+
+        fallingTextView.startAnimation(animationReset);
 
     }
 
@@ -130,6 +135,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     }
 
+
     @Override
     public void onAnimationEnd(Animation animation) {
 
@@ -137,6 +143,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         if (animation == animationFall) {
 
             fallingTextView.startAnimation(animationReset);
+            mPresenter.incorrectResult();
 
         } else if (animation == animationReset) {
 

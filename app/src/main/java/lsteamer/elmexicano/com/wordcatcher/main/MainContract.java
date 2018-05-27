@@ -16,5 +16,8 @@ public interface MainContract {
 
         void fetchNewWords();
 
+        void incorrectResult();
+
+        void correctResult();
     }
 }

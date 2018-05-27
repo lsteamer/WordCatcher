@@ -58,12 +58,28 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
 
-    public void checkResult(boolean userGuess){
+    public void checkResult(boolean userGuess) {
+
+        if (userGuess == gState.isSuccess())
+            correctResult();
+        else
+            incorrectResult();
 
 
     }
 
+    public void correctResult() {
+        gState.setSuccess(true);
+        gState.updateScore();
+        gState.updateRounds();
+        fetchNewWords();
+    }
 
+    public void incorrectResult() {
+        gState.setSuccess(false);
+        gState.updateRounds();
+        fetchNewWords();
+    }
 
 
     public interface UICountDownTimer {
