@@ -4,18 +4,57 @@ import java.util.ArrayList;
 
 public class GameState {
 
-    private int score;
-    private boolean matching;
+    static final private String SUCCESS = "Correct!";
+    static final private String FAILURE = "Wrong";
+    static final private String GO = "Go!";
+
+    private int score, rounds, sizeOfArray;
+    private boolean matching, active, success;
 
     private String wordEnglish, wordSpanish;
 
-    private ArrayList<WordModel.WordPair> list;
-
-    public GameState(int score, ArrayList<WordModel.WordPair> list) {
-        this.score = score;
-        this.list = list;
+    public GameState(int size, boolean state) {
+        this.sizeOfArray = size;
+        this.score = 0;
+        this.rounds = 1;
         this.matching = true;
+        this.success = true;
+        this.active = state;
+        this.wordEnglish = "";
+        this.wordSpanish = "";
     }
+
+    //Is the game Active?
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    //was the last guess a success?
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getSuccess() {
+        if(rounds==0)
+            return GO;
+        else if (success)
+            return SUCCESS;
+        else
+            return FAILURE;
+    }
+
+    //is the current pair of words a match?
+
 
     public boolean isMatching() {
         return matching;
@@ -26,21 +65,51 @@ public class GameState {
     }
 
 
-    public String getScoreString() {
-        return String.valueOf(score);
+    //What's the size of the Array?
+
+    public int getSizeOfArray() {
+        return sizeOfArray;
+    }
+
+    public void setSizeOfArray(int sizeOfArray) {
+        this.sizeOfArray = sizeOfArray;
+    }
+
+    // how many wounds of the game have we played?
+
+    public int getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(int rounds) {
+        this.rounds = rounds;
+    }
+
+    public void updateRounds() {
+        this.rounds++;
+    }
+
+    //what's the current score?
+
+    public int getScore() {
+        return score;
     }
 
     public void setScore(int score) {
         this.score = score;
     }
 
-    public ArrayList<WordModel.WordPair> getList() {
-        return list;
+    public void updateScore() {
+        this.score++;
     }
 
-    public void setList(ArrayList<WordModel.WordPair> list) {
-        this.list = list;
+    //get a String showing the Rounds and the score
+
+    public String getScoreRoundsString() {
+        return String.valueOf(score) + " / " + String.valueOf(rounds);
     }
+
+    //word in English
 
     public String getWordEnglish() {
         return wordEnglish;
@@ -49,6 +118,8 @@ public class GameState {
     public void setWordEnglish(String wordEnglish) {
         this.wordEnglish = wordEnglish;
     }
+
+    //word in Spanish
 
     public String getWordSpanish() {
         return wordSpanish;

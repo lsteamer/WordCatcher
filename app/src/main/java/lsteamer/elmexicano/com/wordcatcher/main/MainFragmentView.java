@@ -68,7 +68,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     }
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -81,24 +80,39 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
         fallingTextView.startAnimation(animationFall);
 
+
+        mPresenter.fetchNewWords();
+
         return view;
     }
 
-    @OnClick(R.id.wrongButton)void onClickWrongButton(){
-        Log.i(VIEW_TAG, "Wrong Button Clicked");
+    @OnClick(R.id.wrongButton)
+    void onClickWrongButton() {
+        mPresenter.checkResult(false);
     }
 
-    @OnClick(R.id.correctButton)void onClickCorrectButton(){
-        Log.i(VIEW_TAG, "Right Button Clicked");
+    @OnClick(R.id.correctButton)
+    void onClickCorrectButton() {
+        mPresenter.checkResult(true);
 
     }
 
 
     // Updating the screen text. (atm, gets only the timer)
     @Override
-    public void updateScreenText(String s) {
+    public void updateScreenTime(String s) {
         timerTextView.setText(s);
     }
+
+    @Override
+    public void updateScreenElements(String score, String result, String fallingWord, String matchWord) {
+        fallingTextView.setText(fallingWord);
+        scoreTextView.setText(score);
+        resultTextView.setText(result);
+        matchTextView.setText(matchWord);
+
+    }
+
 
     // Following three methods are part of the Animation.AnimationListener and the fourth one is a helper of the animations
 
@@ -120,12 +134,11 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     public void onAnimationEnd(Animation animation) {
 
 
-        if(animation==animationFall){
+        if (animation == animationFall) {
 
             fallingTextView.startAnimation(animationReset);
 
-        }
-        else if(animation == animationReset){
+        } else if (animation == animationReset) {
 
             fallingTextView.startAnimation(animationFall);
         }

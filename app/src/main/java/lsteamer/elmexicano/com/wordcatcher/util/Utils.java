@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
@@ -18,10 +19,9 @@ public class Utils {
     /**
      * The {@code fragment} is added to the container view with id {@code frameId}. The operation is
      * performed by the {@code fragmentManager}.
-     *
      */
-    public static void addFragmentToActivity (@NonNull FragmentManager fragmentManager,
-                                              @NonNull Fragment fragment, int frameId) {
+    public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
+                                             @NonNull Fragment fragment, int frameId) {
         checkNotNull(fragmentManager);
         checkNotNull(fragment);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -29,6 +29,7 @@ public class Utils {
         transaction.commit();
     }
 
+    //Json Parser Helper
     public static String inputStreamToString(InputStream inputStream) {
         try {
             byte[] bytes = new byte[inputStream.available()];
@@ -40,6 +41,21 @@ public class Utils {
         }
     }
 
+    //Decide if it will
+    public static boolean coinFlip() {
+
+        Random rand = new Random();
+        if (rand.nextInt(2) + 1 == 1)
+            return true;
+        else
+            return false;
+    }
+
+    public static int getRandomNumber(int range) {
+
+        Random rand = new Random();
+        return rand.nextInt(range);
+    }
 
 
 }

@@ -21,6 +21,10 @@ public class WordModel  {
         return list;
     }
 
+    public int getArraySize(){
+        return list.size();
+    }
+
 
     static public class WordPair {
         @SerializedName("text_eng")
