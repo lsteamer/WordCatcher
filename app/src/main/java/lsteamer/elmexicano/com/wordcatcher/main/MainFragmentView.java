@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,14 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import lsteamer.elmexicano.com.wordcatcher.R;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
 public class MainFragmentView extends Fragment implements Animation.AnimationListener, MainContract.ViewLayer {
+
+    public static final String VIEW_TAG = "MainFragmentView";
 
 
     private MainContract.PresenterLayer mPresenter;
@@ -64,6 +68,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     }
 
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,6 +82,22 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationFall);
 
         return view;
+    }
+
+    @OnClick(R.id.wrongButton)void onClickWrongButton(){
+        Log.i(VIEW_TAG, "Wrong Button Clicked");
+    }
+
+    @OnClick(R.id.correctButton)void onClickCorrectButton(){
+        Log.i(VIEW_TAG, "Right Button Clicked");
+
+    }
+
+
+    // Updating the screen text. (atm, gets only the timer)
+    @Override
+    public void updatetScreenText(String s) {
+        timerTextView.setText(s);
     }
 
     // Following three methods are part of the Animation.AnimationListener and the fourth one is a helper of the animations
@@ -116,4 +137,5 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     public void onAnimationRepeat(Animation animation) {
 
     }
+
 }

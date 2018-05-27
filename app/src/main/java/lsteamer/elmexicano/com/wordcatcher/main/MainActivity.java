@@ -32,18 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
     protected void startGame(View view){
 
+        //Hide the first screen and show the game screen
         coordinatorLayout.setVisibility(View.VISIBLE);
         preLayout.setVisibility(View.GONE);
 
         mView = (MainFragmentView) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-
         if(mView == null){
             mView = MainFragmentView.newInstance();
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
 
-
-        mPresenter = new MainPresenter(mView);
+        mPresenter = new MainPresenter(mView, new DefaultCountDownTimer());
 
 
     }
