@@ -16,7 +16,7 @@ public class GameState {
     public GameState(int size, boolean state) {
         this.sizeOfArray = size;
         this.score = 0;
-        this.rounds = 1;
+        this.rounds = 0;
         this.matching = true;
         this.success = true;
         this.active = state;
@@ -45,7 +45,7 @@ public class GameState {
     }
 
     public String getSuccess() {
-        if(rounds==1)
+        if(rounds==0)
             return GO;
         else if (success)
             return SUCCESS;

@@ -60,7 +60,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
     public void checkResult(boolean userGuess) {
 
-        if (userGuess == gState.isSuccess())
+        if (userGuess == gState.isMatching())
             correctResult();
         else
             incorrectResult();
