@@ -7,7 +7,11 @@ public interface MainContract {
 
         void updateScreenTime(String time);
 
-        void updateScreenElements(String score, String result, String fallingWord, String matchWord);
+        void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord);
+
+        void setAnimations();
+
+        void gameOver();
     }
 
     interface PresenterLayer{
@@ -19,5 +23,11 @@ public interface MainContract {
         void incorrectResult();
 
         void correctResult();
+
+        void deactivateState();
+
+        boolean isGameActive();
+
+        String getScoreRoundsString();
     }
 }

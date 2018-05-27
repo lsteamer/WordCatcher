@@ -11,15 +11,9 @@ import java.util.Random;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
-/**
- * This provides methods to help Activities load their UI.
- */
 public class Utils {
 
-    /**
-     * The {@code fragment} is added to the container view with id {@code frameId}. The operation is
-     * performed by the {@code fragmentManager}.
-     */
+    // Static utility methods
     public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
                                              @NonNull Fragment fragment, int frameId) {
         checkNotNull(fragmentManager);

@@ -3,14 +3,15 @@ package lsteamer.elmexicano.com.wordcatcher.main;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -21,8 +22,6 @@ import lsteamer.elmexicano.com.wordcatcher.R;
 import static android.support.v4.util.Preconditions.checkNotNull;
 
 public class MainFragmentView extends Fragment implements Animation.AnimationListener, MainContract.ViewLayer {
-
-    public static final String VIEW_TAG = "MainFragmentView";
 
 
     private MainContract.PresenterLayer mPresenter;
@@ -42,6 +41,12 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     Button wrongButton;
     @BindView(R.id.correctButton)
     Button correctButton;
+    @BindView(R.id.layoutBottom)
+    ConstraintLayout constraintLayoutBottom;
+    @BindView(R.id.linearLayoutEndScreen)
+    LinearLayout linearLayoutEndScreen;
+    @BindView(R.id.scoreFinalTextView)
+    TextView scoreFinalTextView;
 
     // Two animation Variables
     Animation animationFall, animationReset;
@@ -57,11 +62,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
     public void setPresenter(@NonNull MainContract.PresenterLayer presenter) {
         //Setting the presenter Layer
         this.mPresenter = checkNotNull(presenter);
@@ -73,19 +73,22 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment_view, container, false);
 
+        //setting the animation
         setAnimations();
+
+        //Binding the views
         ButterKnife.bind(this, view);
 
-        fallingTextView.setText("And now for something");
-
+        //Starting the animation
         fallingTextView.startAnimation(animationFall);
 
-
+        //fetching the words that will be displayed
         mPresenter.fetchNewWords();
 
         return view;
     }
 
+    //User clicks not-a-match
     @OnClick(R.id.wrongButton)
     void onClickWrongButton() {
         mPresenter.checkResult(false);
@@ -93,13 +96,12 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationReset);
     }
 
+    //user clicks it's-a-match
     @OnClick(R.id.correctButton)
     void onClickCorrectButton() {
         mPresenter.checkResult(true);
 
-
         fallingTextView.startAnimation(animationReset);
-
     }
 
 
@@ -110,17 +112,43 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     }
 
     @Override
-    public void updateScreenElements(String score, String result, String fallingWord, String matchWord) {
-        fallingTextView.setText(fallingWord);
-        scoreTextView.setText(score);
-        resultTextView.setText(result);
-        matchTextView.setText(matchWord);
+    public void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord) {
+        //Updating screen elements.
 
+        fallingTextView.setText(fallingWord);
+
+        scoreTextView.setText(score);
+
+        resultTextView.setText(result);
+        resultTextView.setTextColor(color);
+
+        matchTextView.setText(matchWord);
     }
 
 
-    // Following three methods are part of the Animation.AnimationListener and the fourth one is a helper of the animations
+    public void gameOver() {
+        //method runs when the game is over
 
+        //we deactivate the state
+        mPresenter.deactivateState();
+
+        //Clear animation and disable views
+        fallingTextView.clearAnimation();
+        fallingTextView.setVisibility(View.GONE);
+
+        constraintLayoutBottom.setVisibility(View.GONE);
+
+        resultTextView.setVisibility(View.GONE);
+
+
+        // Make the end-screen visible
+        scoreFinalTextView.setText(mPresenter.getScoreRoundsString());
+        linearLayoutEndScreen.setVisibility(View.VISIBLE);
+
+
+    }
+
+    // Following methods are part of the Animation.AnimationListener or helpers for the animations
     public void setAnimations() {
 
         animationFall = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.falling);
@@ -139,16 +167,22 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     @Override
     public void onAnimationEnd(Animation animation) {
 
+        //If the game is active (It has started and it hasn't ended)
+        if (mPresenter.isGameActive())
+            if (animation == animationFall) {
+                //If we're coming out of the Fall
 
-        if (animation == animationFall) {
+                //Reset it
+                fallingTextView.startAnimation(animationReset);
 
-            fallingTextView.startAnimation(animationReset);
-            mPresenter.incorrectResult();
+                //Flag it as an incorrect Result
+                mPresenter.incorrectResult();
 
-        } else if (animation == animationReset) {
 
-            fallingTextView.startAnimation(animationFall);
-        }
+            } else if (animation == animationReset) {
+                //Otherwise set it to fall again
+                fallingTextView.startAnimation(animationFall);
+            }
 
 
     }

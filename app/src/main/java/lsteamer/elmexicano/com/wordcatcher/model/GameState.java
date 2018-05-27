@@ -1,12 +1,19 @@
 package lsteamer.elmexicano.com.wordcatcher.model;
 
+import android.graphics.Color;
+
 import java.util.ArrayList;
 
 public class GameState {
 
+    //GameState and Logic
+
+
+    // Result Screens
     static final private String SUCCESS = "Correct!";
     static final private String FAILURE = "Wrong";
     static final private String GO = "Let's go!";
+
 
     private int score, rounds, sizeOfArray;
     private boolean matching, active, success;
@@ -34,7 +41,7 @@ public class GameState {
         this.active = active;
     }
 
-    //was the last guess a success?
+    //The result of the previous round
 
     public boolean isSuccess() {
         return success;
@@ -51,6 +58,15 @@ public class GameState {
             return SUCCESS;
         else
             return FAILURE;
+    }
+
+    public int getSuccessColor(){
+        if(rounds==0)
+            return Color.BLACK;
+        if(success)
+            return Color.GREEN;
+        else
+            return Color.RED;
     }
 
     //is the current pair of words a match?

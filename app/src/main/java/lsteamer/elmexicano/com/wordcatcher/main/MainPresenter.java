@@ -14,6 +14,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private GameState gState;
     private int numberRange;
 
+
     MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer) {
         this.vLayer = view;
         this.gState = gameState;
@@ -29,6 +30,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
 
     public void fetchNewWords() {
+
         //Checking if we're going to get matching words
         boolean matching = Utils.coinFlip();
 
@@ -51,24 +53,25 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
         }
 
+        // setting the words in the gamestate
         gState.setWordEnglish(englishWord);
         gState.setWordSpanish(spanishWord);
 
-        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), englishWord, spanishWord);
+        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), englishWord, spanishWord);
     }
 
 
     public void checkResult(boolean userGuess) {
-
+        //Check the result of the user
         if (userGuess == gState.isMatching())
             correctResult();
         else
             incorrectResult();
 
-
     }
 
     public void correctResult() {
+        // If the result was correct
         gState.setSuccess(true);
         gState.updateScore();
         gState.updateRounds();
@@ -76,11 +79,26 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public void incorrectResult() {
+        // incorrect result or word slid all the way down
         gState.setSuccess(false);
         gState.updateRounds();
         fetchNewWords();
     }
 
+    public String getScoreRoundsString() {
+        // get the score for the end screen
+        return gState.getScoreRoundsString();
+    }
+
+    public boolean isGameActive() {
+        //is... game active?
+        return gState.isActive();
+    }
+
+    public void deactivateState() {
+        //game's over
+        gState.setActive(false);
+    }
 
     public interface UICountDownTimer {
         void attach(MainContract.ViewLayer view);
@@ -110,6 +128,8 @@ class DefaultCountDownTimer implements MainPresenter.UICountDownTimer {
             @Override
             public void onFinish() {
                 //End the game, show an end screen?
+
+                view.gameOver();
             }
         };
     }

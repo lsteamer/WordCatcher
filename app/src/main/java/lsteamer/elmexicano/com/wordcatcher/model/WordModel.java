@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class WordModel  {
 
+    //Model that gets the information from the Json and holds it
+
     @SerializedName("list")
     public ArrayList<WordPair> list;
 
