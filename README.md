@@ -4,7 +4,7 @@
 A word matching game.
 
 Beat the clock and learn Spanish. <br>
-<img src="/screenshots/1.png" height="400px"/> <img src="/screenshots/2.png" height="400px"/><img src="/screenshots/3.png" height="400px"/><img src="/screenshots/4.png" height="400px"/>
+<img src="/screenshots/1.png" height="400px"/> <img src="/screenshots/2.png" height="400px"/><img src="/screenshots/4.png" height="400px"/>
 <br>
 
 
