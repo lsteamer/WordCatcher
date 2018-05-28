@@ -100,14 +100,21 @@
 
 
             <ImageView
+                android:id="@+id/imageEndScreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/congratulations"/>
             <TextView
-                android:id="@+id/endTextView1"
+                android:id="@+id/endTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/congratulations"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/endTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/your_score"
                 android:textSize="20sp" />
 
             <TextView

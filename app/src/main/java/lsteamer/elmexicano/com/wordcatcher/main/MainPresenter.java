@@ -19,7 +19,12 @@ public class MainPresenter implements MainContract.PresenterLayer {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
-        this.numberRange = gameState.getSizeOfArray();
+
+        //Size of Array for testing purposes
+        if(gameState.getSizeOfArray()>0)
+            this.numberRange = gameState.getSizeOfArray();
+        else
+            this.numberRange = 99;
 
         vLayer.setPresenter(this);
 
@@ -57,7 +62,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         gState.setWordEnglish(englishWord);
         gState.setWordSpanish(spanishWord);
 
-        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), englishWord, spanishWord);
+        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordEnglish(), gState.getWordSpanish());
     }
 
 
