@@ -13,12 +13,14 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private WordModel model;
     private GameState gState;
     private int numberRange;
+    private  UICountDownTimer timer;
 
 
     MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
+        this.timer = timer;
 
         //Size of Array for testing purposes
         if(gameState.getSizeOfArray()>0)
@@ -28,8 +30,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
         vLayer.setPresenter(this);
 
-        timer.attach(this.vLayer);
-        timer.start();
+        this.timer.attach(this.vLayer);
+        this.timer.start();
 
     }
 
@@ -65,6 +67,21 @@ public class MainPresenter implements MainContract.PresenterLayer {
         vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordEnglish(), gState.getWordSpanish());
     }
 
+    public void restartGame(){
+
+        gState.setActive(true);
+        timer.start();
+
+        vLayer.switchScreens();
+
+        clearValues();
+        fetchNewWords();
+    }
+
+    public void clearValues(){
+        gState.setScore(0);
+        gState.setRounds(0);
+    }
 
     public void checkResult(boolean userGuess) {
         //Check the result of the user
@@ -103,6 +120,11 @@ public class MainPresenter implements MainContract.PresenterLayer {
     public void deactivateState() {
         //game's over
         gState.setActive(false);
+    }
+
+    public void activateState(){
+        //game's restarted
+        gState.setActive(true);
     }
 
     public interface UICountDownTimer {

@@ -131,6 +131,12 @@
                 android:text="@string/try_again"
                 android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/restartGameButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/play_again"/>
+
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

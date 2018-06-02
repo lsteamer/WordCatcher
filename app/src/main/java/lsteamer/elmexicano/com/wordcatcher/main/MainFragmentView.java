@@ -47,6 +47,8 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     LinearLayout linearLayoutEndScreen;
     @BindView(R.id.scoreFinalTextView)
     TextView scoreFinalTextView;
+    @BindView(R.id.restartGameButton)
+    Button restartGameButton;
 
     // Two animation Variables
     Animation animationFall, animationReset;
@@ -104,6 +106,10 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationReset);
     }
 
+    @OnClick(R.id.restartGameButton)
+    void restartGameButtonPressed() {
+        mPresenter.restartGame();
+    }
 
     // Updating the screen text. (atm, gets only the timer)
     @Override
@@ -115,14 +121,16 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     public void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord) {
         //Updating screen elements.
 
+        //words to be matched
         fallingTextView.setText(fallingWord);
+        matchTextView.setText(matchWord);
 
+        //current score
         scoreTextView.setText(score);
 
+        //current result
         resultTextView.setText(result);
         resultTextView.setTextColor(color);
-
-        matchTextView.setText(matchWord);
     }
 
 
@@ -132,20 +140,40 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         //we deactivate the state
         mPresenter.deactivateState();
 
-        //Clear animation and disable views
-        fallingTextView.clearAnimation();
-        fallingTextView.setVisibility(View.GONE);
+        switchScreens();
 
-        constraintLayoutBottom.setVisibility(View.GONE);
-
-        resultTextView.setVisibility(View.GONE);
-
-
-        // Make the end-screen visible
         scoreFinalTextView.setText(mPresenter.getScoreRoundsString());
-        linearLayoutEndScreen.setVisibility(View.VISIBLE);
+    }
 
 
+    //Switches between the game and the end screen
+    public void switchScreens() {
+
+        if (mPresenter.isGameActive()) {
+            //if game is active
+
+            //hide the End screen
+            linearLayoutEndScreen.setVisibility(View.GONE);
+
+            //restart the animation
+            fallingTextView.startAnimation(animationFall);
+
+            //set the Falling text the Layout at the bottom and the result view as active
+            fallingTextView.setVisibility(View.VISIBLE);
+            constraintLayoutBottom.setVisibility(View.VISIBLE);
+            resultTextView.setVisibility(View.VISIBLE);
+        } else {
+            //if the game is inactive
+
+            //clear animation and hide views
+            fallingTextView.clearAnimation();
+            fallingTextView.setVisibility(View.GONE);
+            constraintLayoutBottom.setVisibility(View.GONE);
+            resultTextView.setVisibility(View.GONE);
+
+            //make the End screen visible
+            linearLayoutEndScreen.setVisibility(View.VISIBLE);
+        }
     }
 
     // Following methods are part of the Animation.AnimationListener or helpers for the animations

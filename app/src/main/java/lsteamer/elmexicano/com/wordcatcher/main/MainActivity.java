@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void startGame(View view) {
+    public void startGame(View view) {
 
         // Reading the json
         String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));

@@ -12,6 +12,8 @@ public interface MainContract {
         void setAnimations();
 
         void gameOver();
+
+        void switchScreens();
     }
 
     interface PresenterLayer{
@@ -29,5 +31,7 @@ public interface MainContract {
         boolean isGameActive();
 
         String getScoreRoundsString();
+
+        void restartGame();
     }
 }
