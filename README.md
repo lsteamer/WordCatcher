@@ -25,7 +25,7 @@ It's using ButterKnife, Gson and Mockito.<br>
 
 
 # Upgrades coming:
-Different languages
-Custom dictionaries
-No-time-limit option
-High Scores
+Different languages.<br>
+Custom dictionaries.<br>
+No-time-limit option.<br>
+High Scores.<br>
