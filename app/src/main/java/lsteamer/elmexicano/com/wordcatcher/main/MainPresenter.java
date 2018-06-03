@@ -69,16 +69,24 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
     public void restartGame(){
 
-        gState.setActive(true);
+        //set the game state as active again
+        activateState();
+
+        //restart the timer
         timer.start();
 
+        //switch from End screen to game screen
         vLayer.switchScreens();
 
+        //Clear the values
         clearValues();
+
+        //fetch new words
         fetchNewWords();
     }
 
     public void clearValues(){
+        //clear the values to be able to restart the game
         gState.setScore(0);
         gState.setRounds(0);
     }
@@ -89,7 +97,6 @@ public class MainPresenter implements MainContract.PresenterLayer {
             correctResult();
         else
             incorrectResult();
-
     }
 
     public void correctResult() {
@@ -113,7 +120,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public boolean isGameActive() {
-        //is... game active?
+        //is game active
         return gState.isActive();
     }
 

@@ -1,8 +1,11 @@
 package lsteamer.elmexicano.com.wordcatcher.model;
 
+import android.app.Activity;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
-import java.util.ArrayList;
+import lsteamer.elmexicano.com.wordcatcher.R;
 
 public class GameState {
 
@@ -13,6 +16,10 @@ public class GameState {
     static final private String SUCCESS = "Correct!";
     static final private String FAILURE = "Wrong";
     static final private String GO = "Let's go!";
+
+    // Color should be obtained from the values/color folder
+    static final private String COLOR_GREEN = "0B6623";
+
 
 
     private int score, rounds, sizeOfArray;
@@ -64,7 +71,7 @@ public class GameState {
         if(rounds==0)
             return Color.BLACK;
         if(success)
-            return Color.GREEN;
+            return 0xff000000 + Integer.parseInt(COLOR_GREEN,16);
         else
             return Color.RED;
     }

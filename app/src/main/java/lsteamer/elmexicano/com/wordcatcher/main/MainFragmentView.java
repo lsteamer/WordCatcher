@@ -106,6 +106,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationReset);
     }
 
+    //User clicks to play again
     @OnClick(R.id.restartGameButton)
     void restartGameButtonPressed() {
         mPresenter.restartGame();
@@ -119,18 +120,21 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     @Override
     public void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord) {
-        //Updating screen elements.
+        if(mPresenter.isGameActive()){
+            //If the game is active update screen elements
 
-        //words to be matched
-        fallingTextView.setText(fallingWord);
-        matchTextView.setText(matchWord);
+            //words to be matched
+            fallingTextView.setText(fallingWord);
+            matchTextView.setText(matchWord);
 
-        //current score
-        scoreTextView.setText(score);
+            //current score
+            scoreTextView.setText(score);
 
-        //current result
-        resultTextView.setText(result);
-        resultTextView.setTextColor(color);
+            //current result
+            resultTextView.setText(result);
+            resultTextView.setTextColor(color);
+
+        }
     }
 
 
@@ -139,6 +143,8 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
         //we deactivate the state
         mPresenter.deactivateState();
+
+        updateScreenTime("0");
 
         switchScreens();
 
