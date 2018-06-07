@@ -51,5 +51,15 @@ public class Utils {
         return rand.nextInt(range);
     }
 
+    public static int getRandomNumber(int range, int number) {
+        //A different random number
+        Random rand = new Random();
+        int randInt = rand.nextInt(range);
+        while(randInt == number){
+            randInt = rand.nextInt(range);
+        }
+        return randInt;
+    }
+
 
 }

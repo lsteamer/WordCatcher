@@ -1,11 +1,6 @@
 package lsteamer.elmexicano.com.wordcatcher.model;
 
-import android.app.Activity;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-
-import lsteamer.elmexicano.com.wordcatcher.R;
 
 public class GameState {
 

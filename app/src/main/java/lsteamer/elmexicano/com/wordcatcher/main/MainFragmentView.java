@@ -37,18 +37,12 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     TextView fallingTextView;
     @BindView(R.id.matchTextView)
     TextView matchTextView;
-    @BindView(R.id.wrongButton)
-    Button wrongButton;
-    @BindView(R.id.correctButton)
-    Button correctButton;
     @BindView(R.id.layoutBottom)
     ConstraintLayout constraintLayoutBottom;
     @BindView(R.id.linearLayoutEndScreen)
     LinearLayout linearLayoutEndScreen;
     @BindView(R.id.scoreFinalTextView)
     TextView scoreFinalTextView;
-    @BindView(R.id.restartGameButton)
-    Button restartGameButton;
 
     // Two animation Variables
     Animation animationFall, animationReset;

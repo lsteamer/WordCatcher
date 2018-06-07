@@ -46,17 +46,16 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
         String spanishWord, englishWord;
 
+        int number = Utils.getRandomNumber(numberRange);
+        spanishWord = model.getSpanishElement(number);
+
         //Getting our words
         if (matching) {
             //Getting two matching words
-            int number = Utils.getRandomNumber(numberRange);
-
-            spanishWord = model.getSpanishElement(number);
             englishWord = model.getEnglishElement(number);
         } else {
             //Getting two random Words
-            spanishWord = model.getSpanishElement(Utils.getRandomNumber(numberRange));
-            englishWord = model.getEnglishElement(Utils.getRandomNumber(numberRange));
+            englishWord = model.getEnglishElement(Utils.getRandomNumber(numberRange, number));
 
         }
 
