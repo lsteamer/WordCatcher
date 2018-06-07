@@ -9,10 +9,8 @@ import android.view.View;
 import com.google.gson.Gson;
 
 import lsteamer.elmexicano.com.wordcatcher.R;
-import lsteamer.elmexicano.com.wordcatcher.main.MainFragmentView;
-import lsteamer.elmexicano.com.wordcatcher.main.MainPresenter;
-import lsteamer.elmexicano.com.wordcatcher.model.GameState;
-import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
+import lsteamer.elmexicano.com.wordcatcher.main.model.GameState;
+import lsteamer.elmexicano.com.wordcatcher.main.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
 public class MainActivity extends AppCompatActivity {

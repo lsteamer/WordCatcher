@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import lsteamer.elmexicano.com.wordcatcher.model.GameState;
-import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
+import lsteamer.elmexicano.com.wordcatcher.main.model.GameState;
+import lsteamer.elmexicano.com.wordcatcher.main.model.WordModel;
 
 import static org.mockito.Mockito.verify;
 

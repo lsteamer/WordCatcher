@@ -2,8 +2,8 @@ package lsteamer.elmexicano.com.wordcatcher.main;
 
 import android.os.CountDownTimer;
 
-import lsteamer.elmexicano.com.wordcatcher.model.GameState;
-import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
+import lsteamer.elmexicano.com.wordcatcher.main.model.GameState;
+import lsteamer.elmexicano.com.wordcatcher.main.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
 public class MainPresenter implements MainContract.PresenterLayer {
@@ -32,6 +32,24 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
         this.timer.attach(this.vLayer);
         this.timer.start();
+
+    }
+
+
+    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel) {
+        this.vLayer = view;
+        this.gState = gameState;
+        this.model = wordModel;
+        this.timer = null;
+
+        //Size of Array for testing purposes
+        if(gameState.getSizeOfArray()>0)
+            this.numberRange = gameState.getSizeOfArray();
+        else
+            this.numberRange = 99;
+
+        vLayer.setPresenter(this);
+
 
     }
 
