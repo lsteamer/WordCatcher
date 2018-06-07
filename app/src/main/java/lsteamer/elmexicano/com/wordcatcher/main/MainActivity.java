@@ -1,5 +1,6 @@
 package lsteamer.elmexicano.com.wordcatcher.main;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import com.google.gson.Gson;
 import lsteamer.elmexicano.com.wordcatcher.R;
 import lsteamer.elmexicano.com.wordcatcher.main.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.main.model.WordModel;
+import lsteamer.elmexicano.com.wordcatcher.settings.SettingsActivity;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,4 +63,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void openSettings(View view){
+        Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+        startActivity(startSettingsActivity);
+    }
+
 }
