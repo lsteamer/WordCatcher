@@ -36,24 +36,18 @@ public class Utils {
     }
 
     //Decide if it will
-    public static boolean coinFlip() {
+    public static boolean coinFlip(Random rand) {
 
-        Random rand = new Random();
-        if (rand.nextInt(2) + 1 == 1)
-            return true;
-        else
-            return false;
+        return rand.nextBoolean();
     }
 
-    public static int getRandomNumber(int range) {
+    public static int getRandomNumber(Random rand, int range) {
 
-        Random rand = new Random();
         return rand.nextInt(range);
     }
 
-    public static int getRandomNumber(int range, int number) {
+    public static int getRandomNumber(Random rand, int range, int number) {
         //A different random number
-        Random rand = new Random();
         int randInt = rand.nextInt(range);
         while(randInt == number){
             randInt = rand.nextInt(range);

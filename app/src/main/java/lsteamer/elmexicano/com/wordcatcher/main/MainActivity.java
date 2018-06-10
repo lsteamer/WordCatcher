@@ -8,9 +8,11 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
+import java.util.Random;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import lsteamer.elmexicano.com.wordcatcher.R;
-import lsteamer.elmexicano.com.wordcatcher.main.MainFragmentView;
-import lsteamer.elmexicano.com.wordcatcher.main.MainPresenter;
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
@@ -19,23 +21,22 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String ACTIVITY_TAG = "MainActivity";
 
-    private CoordinatorLayout coordinatorLayout;
-    private ConstraintLayout preLayout;
+    @BindView(R.id.coordinatorLayout)
+    CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.preLayout)
+    ConstraintLayout preLayout;
 
     //Presenter and View Layers
-    MainPresenter mPresenter;
-    MainFragmentView mView;
+    private MainPresenter mPresenter;
+    private MainFragmentView mView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Binding the views
+        ButterKnife.bind(this);
 
-        //Layout that will show the game
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-
-        //Layout that showed the intro Screen
-        preLayout = (ConstraintLayout) findViewById(R.id.preLayout);
 
     }
 
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //GameState created
         GameState gameState = new GameState(model.getArraySize(), true);
 
-        mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer());
+        mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer(), new Random());
 
 
     }

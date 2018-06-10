@@ -2,6 +2,8 @@ package lsteamer.elmexicano.com.wordcatcher.main;
 
 import android.os.CountDownTimer;
 
+import java.util.Random;
+
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
@@ -14,13 +16,15 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private GameState gState;
     private int numberRange;
     private  UICountDownTimer timer;
+    private Random rand;
 
 
-    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer) {
+    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer, Random random) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
         this.timer = timer;
+        this.rand = random;
 
         //Size of Array for testing purposes
         if(gameState.getSizeOfArray()>0)
@@ -39,14 +43,14 @@ public class MainPresenter implements MainContract.PresenterLayer {
     public void fetchNewWords() {
 
         //Checking if we're going to get matching words
-        boolean matching = Utils.coinFlip();
+        boolean matching = Utils.coinFlip(rand);
 
         //And Set that in the GameState-Logic
         gState.setMatching(matching);
 
         String spanishWord, englishWord;
 
-        int number = Utils.getRandomNumber(numberRange);
+        int number = Utils.getRandomNumber(rand, numberRange);
         spanishWord = model.getSpanishElement(number);
 
         //Getting our words
@@ -55,7 +59,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
             englishWord = model.getEnglishElement(number);
         } else {
             //Getting two random Words
-            englishWord = model.getEnglishElement(Utils.getRandomNumber(numberRange, number));
+            englishWord = model.getEnglishElement(Utils.getRandomNumber(rand, numberRange, number));
 
         }
 
