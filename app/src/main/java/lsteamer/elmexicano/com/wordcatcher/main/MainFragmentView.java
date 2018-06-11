@@ -13,6 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -58,7 +60,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     @Override
     public void setPresenter(@NonNull MainContract.PresenterLayer presenter) {
-        //Setting the presenter Layer
         this.mPresenter = checkNotNull(presenter);
     }
 
@@ -71,7 +72,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         //setting the animation
         setAnimations();
 
-        //Binding the views
         ButterKnife.bind(this, view);
 
         //Starting the animation
@@ -83,7 +83,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         return view;
     }
 
-    //User clicks not-a-match
     @OnClick(R.id.wrongButton)
     void onClickWrongButton() {
         mPresenter.checkResult(false);
@@ -91,7 +90,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationReset);
     }
 
-    //user clicks it's-a-match
     @OnClick(R.id.correctButton)
     void onClickCorrectButton() {
         mPresenter.checkResult(true);
@@ -99,13 +97,11 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         fallingTextView.startAnimation(animationReset);
     }
 
-    //User clicks to play again
     @OnClick(R.id.restartGameButton)
     void restartGameButtonPressed() {
         mPresenter.restartGame();
     }
 
-    // Updating the screen text. (atm, gets only the timer)
     @Override
     public void updateScreenTime(String s) {
         timerTextView.setText(s);
@@ -132,12 +128,12 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
 
     public void gameOver() {
-        //method runs when the game is over
 
         //we deactivate the state
         mPresenter.deactivateState();
 
-        updateScreenTime("0");
+
+        updateScreenTime(getResources().getString(R.string.zero));
 
         switchScreens();
 
@@ -175,13 +171,14 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         }
     }
 
+
     // Following methods are part of the Animation.AnimationListener or helpers for the animations
     public void setAnimations() {
 
-        animationFall = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.falling);
+        animationFall = AnimationUtils.loadAnimation(Objects.requireNonNull(getActivity()).getApplicationContext(), R.anim.falling);
         animationFall.setAnimationListener(this);
 
-        animationReset = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.reset);
+        animationReset = AnimationUtils.loadAnimation(Objects.requireNonNull(getActivity()).getApplicationContext(), R.anim.reset);
         animationReset.setAnimationListener(this);
     }
 

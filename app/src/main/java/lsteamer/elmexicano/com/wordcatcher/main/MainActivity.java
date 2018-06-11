@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private MainPresenter mPresenter;
     private MainFragmentView mView;
 
+    private WordModel model;
+    private GameState gameState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +40,16 @@ public class MainActivity extends AppCompatActivity {
         //Binding the views
         ButterKnife.bind(this);
 
+        // Reading the json
+        String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
+        model = new Gson().fromJson(myJson, WordModel.class);
 
+        //GameState created
+        gameState = new GameState(model.getArraySize(), true);
     }
 
     public void startGame(View view) {
 
-        // Reading the json
-        String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
-        WordModel model = new Gson().fromJson(myJson, WordModel.class);
 
         //Hide the first screen and show the game screen
         coordinatorLayout.setVisibility(View.VISIBLE);
@@ -56,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
             mView = MainFragmentView.newInstance();
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
-
-        //GameState created
-        GameState gameState = new GameState(model.getArraySize(), true);
 
         mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer(), new Random());
 

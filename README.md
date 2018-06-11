@@ -25,7 +25,10 @@ It's using ButterKnife, Gson and Mockito.<br>
 
 
 # Upgrades coming:
-Different languages.<br>
-Custom dictionaries.<br>
+Complete unit testing.<br>
+Dagger 2 implementation.<br>
 No-time-limit option.<br>
+Different languages.<br>
+Different levels.<br>
+Custom dictionaries.<br>
 High Scores.<br>

@@ -89,13 +89,11 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public void clearValues(){
-        //clear the values to be able to restart the game
         gState.setScore(0);
         gState.setRounds(0);
     }
 
     public void checkResult(boolean userGuess) {
-        //Check the result of the user
         if (userGuess == gState.isMatching())
             correctResult();
         else
@@ -103,7 +101,6 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public void correctResult() {
-        // If the result was correct
         gState.setSuccess(true);
         gState.updateScore();
         gState.updateRounds();
@@ -111,29 +108,24 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public void incorrectResult() {
-        // incorrect result or word slid all the way down
         gState.setSuccess(false);
         gState.updateRounds();
         fetchNewWords();
     }
 
     public String getScoreRoundsString() {
-        // get the score for the end screen
         return gState.getScoreRoundsString();
     }
 
     public boolean isGameActive() {
-        //is game active
         return gState.isActive();
     }
 
     public void deactivateState() {
-        //game's over
         gState.setActive(false);
     }
 
     public void activateState(){
-        //game's restarted
         gState.setActive(true);
     }
 
