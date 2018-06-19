@@ -7,22 +7,47 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Random;
 
-import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
+import lsteamer.elmexicano.com.wordcatcher.R;
+import lsteamer.elmexicano.com.wordcatcher.model.WordWrapper;
+import lsteamer.elmexicano.com.wordcatcher.model.Words;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
 public class Utils {
 
-    public class GetWordsAsync extends AsyncTask<Context, Void, List<WordModel>>{
+    public class GetWordsAsync extends AsyncTask<Context, Void, List<Words>>{
+
+        private Context context;
 
         @Override
-        protected List<WordModel> doInBackground(Context... contexts) {
-            return null;
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected List<Words> doInBackground(Context... params) {
+            context = params[0];
+
+            InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(R.raw.words_v3));
+
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            final Gson gson = new Gson();
+
+            WordWrapper wordWrapper = gson.fromJson(bufferedReader, WordWrapper.class);
+
+            List<Words> wrdList = wordWrapper.getWordsList();
+
+            return wrdList;
         }
     }
 

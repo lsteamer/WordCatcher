@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Binding the views
         ButterKnife.bind(this);
+
+
 
         // Reading the json
         String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
