@@ -45,11 +45,12 @@ public class MainActivity extends AppCompatActivity {
         model = new Gson().fromJson(myJson, WordModel.class);
 
         //GameState created
-        gameState = new GameState(model.getArraySize(), true);
+        gameState = new GameState(model.getArraySize(), false);
     }
 
     public void startGame(View view) {
 
+        gameState.setActive(true);
 
         //Hide the first screen and show the game screen
         coordinatorLayout.setVisibility(View.VISIBLE);

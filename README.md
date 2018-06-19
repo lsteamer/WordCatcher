@@ -1,11 +1,11 @@
 # Word Catcher
-Branch develop continues work past the limitations of the challenge.
+Branch master contains a stable build.
 
 
 <img src="/screenshots/cover.png" height="200px"/> <br>
 A word matching game.
 
-Beat the clock and learn Spanish. <br>
+Beat the clock and learn Languages. <br>
 <img src="/screenshots/1.png" height="400px"/> <img src="/screenshots/2.png" height="400px"/><img src="/screenshots/3.png" height="400px"/><img src="/screenshots/4.png" height="400px"/>
 <br>
 

@@ -1,5 +1,7 @@
 package lsteamer.elmexicano.com.wordcatcher.util;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,11 +9,22 @@ import android.support.v4.app.FragmentTransaction;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Random;
+
+import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
 public class Utils {
+
+    public class GetWordsAsync extends AsyncTask<Context, Void, List<WordModel>>{
+
+        @Override
+        protected List<WordModel> doInBackground(Context... contexts) {
+            return null;
+        }
+    }
 
     // Static utility methods
     public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
