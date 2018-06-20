@@ -21,4 +21,8 @@ public class WordWrapper {
     public void setWordList(List<Words> wordsList){
         this.words = wordsList;
     }
+
+    public int getArraySize(){
+        return words.size();
+    }
 }

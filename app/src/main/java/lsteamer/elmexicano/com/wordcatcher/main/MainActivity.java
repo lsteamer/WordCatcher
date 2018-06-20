@@ -6,10 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -21,7 +17,6 @@ import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ACTIVITY_TAG = "MainActivity";
 
     @BindView(R.id.coordinatorLayout)
     CoordinatorLayout coordinatorLayout;
@@ -42,15 +37,13 @@ public class MainActivity extends AppCompatActivity {
         //Binding the views
         ButterKnife.bind(this);
 
-
-
-        // Reading the json
-        String myJson = Utils.inputStreamToString(this.getResources().openRawResource(R.raw.words_v3));
-        model = new Gson().fromJson(myJson, WordModel.class);
+        //Reading the model
+        model = Utils.readJsonFile(this, R.raw.words_v3);
 
         //GameState created
         gameState = new GameState(model.getArraySize(), false);
     }
+
 
     public void startGame(View view) {
 
