@@ -5,7 +5,7 @@ Branch master contains a stable build.
 <img src="/screenshots/cover.png" height="200px"/> <br>
 A word matching game.
 
-Beat the clock and learn Languages. <br>
+Learn Languages while playing <br>
 <img src="/screenshots/1.png" height="400px"/> <img src="/screenshots/2.png" height="400px"/><img src="/screenshots/3.png" height="400px"/><img src="/screenshots/4.png" height="400px"/>
 <br>
 

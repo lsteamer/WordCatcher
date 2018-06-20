@@ -18,7 +18,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private  UICountDownTimer timer;
     private Random rand;
 
-
+    //Constructor with timer
     MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer, Random random) {
         this.vLayer = view;
         this.gState = gameState;
@@ -38,6 +38,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
         this.timer.start();
 
     }
+
+    //Constructor without timer
     MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
         this.vLayer = view;
         this.gState = gameState;
@@ -58,29 +60,28 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
     public void fetchNewWords() {
 
-        //Checking if we're going to get matching words
+        //Checking if we're going to get matching words (the same pair)
         boolean matching = Utils.coinFlip(rand);
 
 
         String compareWord, guessWord;
-
         int number = Utils.getRandomNumber(rand, numberRange);
-        compareWord = model.getCompareElement(number);
+        guessWord = model.getGuessElement(number);
 
         //Getting our words
         if (matching) {
-            //Getting two matching words
-            guessWord = model.getGuessElement(number);
+            //Getting a comparing word that matches
+            compareWord = model.getCompareElement(number);
         } else {
-            //Getting two random words
-            guessWord = model.getGuessElement(Utils.getRandomNumber(rand, numberRange, number));
+            //Getting a random comparing word
+            compareWord = model.getCompareElement(Utils.getRandomNumber(rand, numberRange, number));
 
-            //If the matching word and the
-            matching = compareGuessWords(guessWord, model.getGuessElement(number));
+            //if it's not the same pair but it matches, it should be flagged as matching
+            matching = compareWords(guessWord, model.getCompareElement(number));
         }
 
 
-        //And Set that in the GameState-Logic
+        //Set it as matching in the GameState-Logic
         gState.setMatching(matching);
 
         // setting the words in the gamestate
@@ -90,7 +91,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordGuess(), gState.getWordCompare());
     }
 
-    public boolean compareGuessWords(String guess, String compare){
+    public boolean compareWords(String guess, String compare){
 
         return (guess.equals(compare));
     }
