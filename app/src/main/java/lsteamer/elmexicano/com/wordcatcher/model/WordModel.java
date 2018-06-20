@@ -9,14 +9,14 @@ public class WordModel  {
     //Model that gets the information from the Json and holds it
 
     @SerializedName("list")
-    public ArrayList<WordPair> list;
+    private ArrayList<WordPair> list;
 
-    public String getEnglishElement(int position){
-        return list.get(position).textEng;
+    public String getGuessElement(int position){
+        return list.get(position).textGuess;
     }
 
-    public String getSpanishElement(int position){
-        return list.get(position).textSpa;
+    public String getCompareElement(int position){
+        return list.get(position).textCompare;
     }
 
     public ArrayList<WordPair> getList() {
@@ -28,10 +28,10 @@ public class WordModel  {
     }
 
 
-    static public class WordPair {
+    static private class WordPair {
         @SerializedName("text_eng")
-        public String textEng;
+        private String textGuess;
         @SerializedName("text_spa")
-        public String textSpa;
+        private String textCompare;
     }
 }

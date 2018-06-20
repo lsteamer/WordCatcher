@@ -20,7 +20,7 @@ public class GameState {
     private int score, rounds, sizeOfArray;
     private boolean matching, active, success;
 
-    private String wordEnglish, wordSpanish;
+    private String wordGuess, wordCompare;
 
     public GameState(int size, boolean state) {
         this.sizeOfArray = size;
@@ -29,8 +29,8 @@ public class GameState {
         this.matching = true;
         this.success = true;
         this.active = state;
-        this.wordEnglish = "";
-        this.wordSpanish = "";
+        this.wordGuess = "";
+        this.wordCompare = "";
     }
 
     //Is the game Active?
@@ -129,21 +129,21 @@ public class GameState {
 
     //word in English
 
-    public String getWordEnglish() {
-        return wordEnglish;
+    public String getWordGuess() {
+        return wordGuess;
     }
 
-    public void setWordEnglish(String wordEnglish) {
-        this.wordEnglish = wordEnglish;
+    public void setWordGuess(String wordEnglish) {
+        this.wordGuess = wordEnglish;
     }
 
     //word in Spanish
 
-    public String getWordSpanish() {
-        return wordSpanish;
+    public String getWordCompare() {
+        return wordCompare;
     }
 
-    public void setWordSpanish(String wordSpanish) {
-        this.wordSpanish = wordSpanish;
+    public void setWordCompare(String wordSpanish) {
+        this.wordCompare = wordSpanish;
     }
 }

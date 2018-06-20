@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Reading the model
-        model = Utils.readJsonFile(this, R.raw.words_v3);
+        model = Utils.readJsonFile(this, R.raw.deutsch_b1_verben);
 
         //GameState created
         gameState = new GameState(model.getArraySize(), false);
@@ -60,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
 
-        mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer(), new Random());
+        //With timer
+        //mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer(), new Random());
+        //Without timer
+        mPresenter = new MainPresenter(mView, gameState, model, new Random());
 
 
     }

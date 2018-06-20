@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Random;
+
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 
@@ -24,6 +26,9 @@ public class MainPresenterTest {
     @Mock
     private DefaultCountDownTimer timer;
 
+    @Mock
+    private Random random;
+
 
     private MainPresenter mPresenter;
 
@@ -31,7 +36,7 @@ public class MainPresenterTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        mPresenter = new MainPresenter(mView, gameState, model, timer);
+        mPresenter = new MainPresenter(mView, gameState, model, timer, random);
 
     }
 
@@ -39,7 +44,7 @@ public class MainPresenterTest {
     public void fetchNewWords() {
         mPresenter.fetchNewWords();
 
-        verify(mView).updateScreenElements(gameState.getScoreRoundsString(), gameState.getSuccess(), gameState.getSuccessColor(), gameState.getWordEnglish(), gameState.getWordSpanish());
+        verify(mView).updateScreenElements(gameState.getScoreRoundsString(), gameState.getSuccess(), gameState.getSuccessColor(), gameState.getWordGuess(), gameState.getWordCompare());
 
     }
 

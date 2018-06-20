@@ -38,6 +38,22 @@ public class MainPresenter implements MainContract.PresenterLayer {
         this.timer.start();
 
     }
+    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
+        this.vLayer = view;
+        this.gState = gameState;
+        this.model = wordModel;
+        this.timer = null;
+        this.rand = random;
+
+        //Size of Array for testing purposes
+        if(gameState.getSizeOfArray()>0)
+            this.numberRange = gameState.getSizeOfArray();
+        else
+            this.numberRange = 99;
+
+        vLayer.setPresenter(this);
+
+    }
 
 
     public void fetchNewWords() {
@@ -45,29 +61,38 @@ public class MainPresenter implements MainContract.PresenterLayer {
         //Checking if we're going to get matching words
         boolean matching = Utils.coinFlip(rand);
 
-        //And Set that in the GameState-Logic
-        gState.setMatching(matching);
 
-        String spanishWord, englishWord;
+        String compareWord, guessWord;
 
         int number = Utils.getRandomNumber(rand, numberRange);
-        spanishWord = model.getSpanishElement(number);
+        compareWord = model.getCompareElement(number);
 
         //Getting our words
         if (matching) {
             //Getting two matching words
-            englishWord = model.getEnglishElement(number);
+            guessWord = model.getGuessElement(number);
         } else {
-            //Getting two random Words
-            englishWord = model.getEnglishElement(Utils.getRandomNumber(rand, numberRange, number));
+            //Getting two random words
+            guessWord = model.getGuessElement(Utils.getRandomNumber(rand, numberRange, number));
 
+            //If the matching word and the
+            matching = compareGuessWords(guessWord, model.getGuessElement(number));
         }
 
-        // setting the words in the gamestate
-        gState.setWordEnglish(englishWord);
-        gState.setWordSpanish(spanishWord);
 
-        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordEnglish(), gState.getWordSpanish());
+        //And Set that in the GameState-Logic
+        gState.setMatching(matching);
+
+        // setting the words in the gamestate
+        gState.setWordGuess(guessWord);
+        gState.setWordCompare(compareWord);
+
+        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordGuess(), gState.getWordCompare());
+    }
+
+    public boolean compareGuessWords(String guess, String compare){
+
+        return (guess.equals(compare));
     }
 
     public void restartGame(){
