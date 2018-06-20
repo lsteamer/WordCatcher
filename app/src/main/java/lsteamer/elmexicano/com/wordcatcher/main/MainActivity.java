@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
 
-        //With timer
-        //mPresenter = new MainPresenter(mView, gameState, model, new DefaultCountDownTimer(), new Random());
         //Without timer
         mPresenter = new MainPresenter(mView, gameState, model, new Random());
 
