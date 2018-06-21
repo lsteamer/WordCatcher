@@ -2,7 +2,7 @@ package lsteamer.elmexicano.com.wordcatcher.main;
 
 public interface MainContract {
 
-    interface ViewLayer{
+    interface ViewLayer {
         void setPresenter(MainContract.PresenterLayer presenter);
 
         void updateScreenTime(String time);
@@ -16,7 +16,7 @@ public interface MainContract {
         void switchScreens();
     }
 
-    interface PresenterLayer{
+    interface PresenterLayer {
 
         void checkResult(boolean guess);
 

@@ -109,7 +109,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     @Override
     public void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord) {
-        if(mPresenter.isGameActive()){
+        if (mPresenter.isGameActive()) {
             //If the game is active update screen elements
 
             //words to be matched

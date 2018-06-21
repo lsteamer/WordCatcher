@@ -15,7 +15,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private WordModel model;
     private GameState gState;
     private int numberRange;
-    private  UICountDownTimer timer;
+    private UICountDownTimer timer;
     private Random rand;
 
     //Constructor with timer
@@ -27,7 +27,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         this.rand = random;
 
         //Size of Array for testing purposes
-        if(gameState.getSizeOfArray()>0)
+        if (gameState.getSizeOfArray() > 0)
             this.numberRange = gameState.getSizeOfArray();
         else
             this.numberRange = 99;
@@ -48,7 +48,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         this.rand = random;
 
         //Size of Array for testing purposes
-        if(gameState.getSizeOfArray()>0)
+        if (gameState.getSizeOfArray() > 0)
             this.numberRange = gameState.getSizeOfArray();
         else
             this.numberRange = 99;
@@ -91,12 +91,12 @@ public class MainPresenter implements MainContract.PresenterLayer {
         vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordGuess(), gState.getWordCompare());
     }
 
-    public boolean compareWords(String guess, String compare){
+    public boolean compareWords(String guess, String compare) {
 
         return (guess.equals(compare));
     }
 
-    public void restartGame(){
+    public void restartGame() {
 
         //set the game state as active again
         activateState();
@@ -114,7 +114,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         fetchNewWords();
     }
 
-    public void clearValues(){
+    public void clearValues() {
         gState.setScore(0);
         gState.setRounds(0);
     }
@@ -151,7 +151,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         gState.setActive(false);
     }
 
-    public void activateState(){
+    public void activateState() {
         gState.setActive(true);
     }
 

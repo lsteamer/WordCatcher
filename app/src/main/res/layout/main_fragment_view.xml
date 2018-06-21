@@ -8,10 +8,10 @@
     android:orientation="vertical">
 
     <android.support.constraint.ConstraintLayout
-        android:background="@color/colorBackgroundDark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/colorBackgroundDark">
 
         <TextView
             android:id="@+id/timerLabelTextView"
@@ -74,24 +74,24 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/border"
-        android:layout_weight="7">
+        android:layout_weight="7"
+        android:background="@drawable/border">
 
         <TextView
             android:id="@+id/fallingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="26sp"
             tools:text="FALLING_TEXT" />
 
         <LinearLayout
             android:id="@+id/linearLayoutEndScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,18 +99,19 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-
             <ImageView
                 android:id="@+id/imageEndScreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/congratulations"/>
+                android:src="@drawable/congratulations" />
+
             <TextView
                 android:id="@+id/endTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/congratulations"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/endTextView1"
                 android:layout_width="wrap_content"
@@ -136,7 +137,7 @@
                 android:id="@+id/restartGameButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/play_again"/>
+                android:text="@string/play_again" />
 
         </LinearLayout>
 
@@ -145,9 +146,9 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:background="@color/colorBackgroundDark"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:background="@color/colorBackgroundDark">
 
         <TextView
             android:id="@+id/matchTextView"
@@ -160,33 +161,31 @@
             tools:text="WORD_TO_MATCH" />
 
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:id="@+id/wrongButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/colorWhite"
                 android:background="@color/colorRed"
-                android:text="@string/wrong" />
+                android:text="@string/wrong"
+                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/correctButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/colorWhite"
                 android:background="@color/colorGreen"
-                android:text="@string/correct" />
+                android:text="@string/correct"
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
 

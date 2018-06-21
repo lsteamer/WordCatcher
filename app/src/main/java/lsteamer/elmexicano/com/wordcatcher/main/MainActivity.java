@@ -10,6 +10,7 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import lsteamer.elmexicano.com.wordcatcher.R;
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
@@ -44,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         gameState = new GameState(model.getArraySize(), false);
     }
 
-
-    public void startGame(View view) {
+    @OnClick(R.id.startGame)
+    void startGame() {
 
         gameState.setActive(true);
 
