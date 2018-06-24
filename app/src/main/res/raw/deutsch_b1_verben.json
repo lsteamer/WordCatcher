@@ -129,6 +129,43 @@
 	  {
 	    "text_eng": "lust haben",
 	    "text_spa": "auf"
+	  },
+	  {
+	    "text_eng": "folgen",
+	    "text_spa": "auf"
+	  },
+	  {
+	    "text_eng": "beliebt sein",
+	    "text_spa": "bei"
+	  },
+	  {
+	    "text_eng": "freundlich,höfflich/nett sein",
+	    "text_spa": "zu"
+	  },
+	  {
+	    "text_eng": "zufrieden sein",
+	    "text_spa": "mit"
+	  },
+	  {
+	    "text_eng": "verantwortlich sein",
+	    "text_spa": "für"
+	  },
+	  {
+	    "text_eng": "enttäuscht/begeisteert sein",
+	    "text_spa": "von"
+	  },
+	  {
+	    "text_eng": "träumen",
+	    "text_spa": "von"
+	  },
+	  {
+	  	"number": "40",
+	    "text_eng": "beginnen",
+	    "text_spa": "mit"
+	  },
+	  {
+	    "text_eng": "böse sein",
+	    "text_spa": "auf/zu"
 	  }
 	]
 

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.google.gson.Gson;
+
 import java.io.InputStreamReader;
 import java.util.Random;
 
@@ -17,15 +18,11 @@ import static android.support.v4.util.Preconditions.checkNotNull;
 public class Utils {
 
 
-
-
-
-    public static WordModel readJsonFile(Context context, int resourceJson){
+    public static WordModel readJsonFile(Context context, int resourceJson) {
         InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(resourceJson));
 
-        return  new Gson().fromJson(inputStreamReader, WordModel.class);
+        return new Gson().fromJson(inputStreamReader, WordModel.class);
     }
-
 
 
     // Static utility methods
@@ -52,7 +49,7 @@ public class Utils {
     public static int getRandomNumber(Random rand, int range, int number) {
         //A different random number
         int randInt = rand.nextInt(range);
-        while(randInt == number){
+        while (randInt == number) {
             randInt = rand.nextInt(range);
         }
         return randInt;
