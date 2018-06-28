@@ -27,7 +27,7 @@
 	  },
 	  {
 	    "text_eng": "reden",
-	    "text_spa": "mit/von/über"
+	    "text_spa": "mit/über/von"
 	  },
 	  {
 	    "text_eng": "sich fürchten",
@@ -55,7 +55,7 @@
 	  },
 	  {
 	    "text_eng": "sich freuen",
-	    "text_spa": "über/auf"
+	    "text_spa": "auf/über"
 	  },
 	  {
 	    "text_eng": "ausgeben",
@@ -164,8 +164,54 @@
 	    "text_spa": "mit"
 	  },
 	  {
+	  	"number": "41",
 	    "text_eng": "böse sein",
 	    "text_spa": "auf/zu"
+	  },
+	  {
+	  	"number": "42",
+	    "text_eng": "zweifeln",
+	    "text_spa": "an"
+	  },
+	  {
+	  	"number": "43",
+	    "text_eng": "erwarten",
+	    "text_spa": "von"
+	  },
+	  {
+	  	"number": "44",
+	    "text_eng": "interessiert sein",
+	    "text_spa": "an"
+	  },
+	  {
+	  	"number": "45",
+	    "text_eng": "befreundet sein",
+	    "text_spa": "mit"
+	  },
+	  {
+	  	"number": "46",
+	    "text_eng": "sich bedanken",
+	    "text_spa": "bei/für"
+	  },
+	  {
+	  	"number": "47",
+	    "text_eng": "sich bewerben",
+	    "text_spa": "bei"
+	  },
+	  {
+	  	"number": "48",
+	    "text_eng": "danken",
+	    "text_spa": "für"
+	  },
+	  {
+	  	"number": "49",
+	    "text_eng": "diskutieren",
+	    "text_spa": "mit/über"
+	  },
+	  {
+	  	"number": "50",
+	    "text_eng": "sich engagieren",
+	    "text_spa": "für"
 	  }
 	]
 
