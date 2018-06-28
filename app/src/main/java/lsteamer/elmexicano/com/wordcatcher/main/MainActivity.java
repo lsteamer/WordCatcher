@@ -5,6 +5,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import java.util.Random;
 
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             Utils.addFragmentToActivity(getSupportFragmentManager(), mView, R.id.contentFrame);
         }
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        
         //Without timer
         mPresenter = new MainPresenter(mView, gameState, model, new Random());
 
