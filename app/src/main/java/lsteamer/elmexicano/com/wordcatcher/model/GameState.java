@@ -7,6 +7,8 @@ public class GameState {
 
     //GameState and Logic
 
+    //todo move the Hardcoded Strings to the ViewLayer
+
     // Result Screens
     static final private String SUCCESS = "Correct!";
     static final private String FAILURE = "Wrong";

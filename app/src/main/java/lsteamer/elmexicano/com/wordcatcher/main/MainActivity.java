@@ -20,6 +20,7 @@ import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 public class MainActivity extends AppCompatActivity {
 
 
+    //todo CLEAN the layouts dude
     @BindView(R.id.coordinatorLayout)
     CoordinatorLayout coordinatorLayout;
     @BindView(R.id.preLayout)
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private WordModel model;
     private GameState gameState;
+
+
+    //todo get a Settings activity going.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.startGame)
     void startGame() {
+
+        //todo make the game start in a new Activity
 
         gameState.setActive(true);
 
