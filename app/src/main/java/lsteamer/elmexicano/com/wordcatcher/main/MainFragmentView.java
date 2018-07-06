@@ -1,5 +1,6 @@
 package lsteamer.elmexicano.com.wordcatcher.main;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,6 +28,8 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     private MainContract.PresenterLayer mPresenter;
 
+    private String[] titleGameMessage;
+
     // Binding View Elements with Butterknife
     @BindView(R.id.timerTextView)
     TextView timerTextView;
@@ -50,7 +53,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
 
     public MainFragmentView() {
-        // Empty public constructor
+        //this.titleGameMessage = new String[]{getString(R.string.success),getString(R.string.failure),getString(R.string.start_message)};
     }
 
     public static MainFragmentView newInstance() {
@@ -108,7 +111,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     }
 
     @Override
-    public void updateScreenElements(String score, String result, int color, String fallingWord, String matchWord) {
+    public void updateScreenElements(String score, boolean result, String fallingWord, String matchWord) {
         if (mPresenter.isGameActive()) {
             //If the game is active update screen elements
 
@@ -120,9 +123,24 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
             scoreTextView.setText(score);
 
             //current result
-            resultTextView.setText(result);
-            resultTextView.setTextColor(color);
+            setResultTitle(result);
 
+        }
+    }
+
+
+    public void setResultTitle(boolean result) {
+        if(mPresenter.isGameFirstRound()) {
+            resultTextView.setText(getString(R.string.start_message));
+            resultTextView.setTextColor(Color.BLACK);
+        }
+        else if(result) {
+            resultTextView.setText(getString(R.string.success));
+            resultTextView.setTextColor(getResources().getColor(R.color.colorGreen));
+        }
+        else {
+            resultTextView.setText(getString(R.string.failure));
+            resultTextView.setTextColor(Color.RED);
         }
     }
 

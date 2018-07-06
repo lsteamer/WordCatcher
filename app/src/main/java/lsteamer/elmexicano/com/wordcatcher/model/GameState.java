@@ -7,18 +7,6 @@ public class GameState {
 
     //GameState and Logic
 
-    //todo move the Hardcoded Strings to the ViewLayer
-
-    // Result Screens
-    static final private String SUCCESS = "Correct!";
-    static final private String FAILURE = "Wrong";
-    static final private String GO = "Let's go!";
-
-    // Color should be obtained from the values/color folder
-    static final private String COLOR_GREEN = "0B6623";
-
-
-
     private int score, rounds, sizeOfArray;
     private boolean matching, active, success;
 
@@ -55,24 +43,6 @@ public class GameState {
         this.success = success;
     }
 
-    public String getSuccess() {
-        if(rounds==0)
-            return GO;
-        else if (success)
-            return SUCCESS;
-        else
-            return FAILURE;
-    }
-
-    public int getSuccessColor(){
-        if(rounds==0)
-            return Color.BLACK;
-        if(success)
-            return 0xff000000 + Integer.parseInt(COLOR_GREEN,16);
-        else
-            return Color.RED;
-    }
-
     //is the current pair of words a match?
 
 
@@ -95,7 +65,7 @@ public class GameState {
         this.sizeOfArray = sizeOfArray;
     }
 
-    // how many wounds of the game have we played?
+    // how many rounds of the game have we played?
 
     public int getRounds() {
         return rounds;

@@ -91,7 +91,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         gState.setWordGuess(guessWord);
         gState.setWordCompare(compareWord);
 
-        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.getSuccess(), gState.getSuccessColor(), gState.getWordGuess(), gState.getWordCompare());
+        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.isSuccess(), gState.getWordGuess(), gState.getWordCompare());
     }
 
     public boolean compareWords(String guess, String compare) {
@@ -157,6 +157,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
     public void activateState() {
         gState.setActive(true);
     }
+
+    public boolean isGameFirstRound(){ return gState.getRounds()==0;}
 
     public interface UICountDownTimer {
         void attach(MainContract.ViewLayer view);
