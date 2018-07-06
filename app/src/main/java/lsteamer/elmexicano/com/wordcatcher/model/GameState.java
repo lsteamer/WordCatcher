@@ -1,8 +1,5 @@
 package lsteamer.elmexicano.com.wordcatcher.model;
 
-import android.graphics.Color;
-
-
 public class GameState {
 
     //GameState and Logic
@@ -10,7 +7,7 @@ public class GameState {
     private int score, rounds, sizeOfArray;
     private boolean matching, active, success;
 
-    private String wordGuess, wordCompare;
+    private String wordFalling, wordCompare;
 
     public GameState(int size, boolean state) {
         this.sizeOfArray = size;
@@ -19,7 +16,7 @@ public class GameState {
         this.matching = true;
         this.success = true;
         this.active = state;
-        this.wordGuess = "";
+        this.wordFalling = "";
         this.wordCompare = "";
     }
 
@@ -93,20 +90,14 @@ public class GameState {
         this.score++;
     }
 
-    //get a String showing the Rounds and the score
-
-    public String getScoreRoundsString() {
-        return String.valueOf(score) + " / " + String.valueOf(rounds);
-    }
-
     //word in English
 
-    public String getWordGuess() {
-        return wordGuess;
+    public String getWordFalling() {
+        return wordFalling;
     }
 
-    public void setWordGuess(String wordEnglish) {
-        this.wordGuess = wordEnglish;
+    public void setWordFalling(String wordEnglish) {
+        this.wordFalling = wordEnglish;
     }
 
     //word in Spanish

@@ -28,8 +28,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
     private MainContract.PresenterLayer mPresenter;
 
-    private String[] titleGameMessage;
-
     // Binding View Elements with Butterknife
     @BindView(R.id.timerTextView)
     TextView timerTextView;
@@ -111,7 +109,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     }
 
     @Override
-    public void updateScreenElements(String score, boolean result, String fallingWord, String matchWord) {
+    public void updateScreenElements(int score, int rounds, boolean result, String fallingWord, String matchWord) {
         if (mPresenter.isGameActive()) {
             //If the game is active update screen elements
 
@@ -120,7 +118,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
             matchTextView.setText(matchWord);
 
             //current score
-            scoreTextView.setText(score);
+            setScoreRoundsString(score, rounds);
 
             //current result
             setResultTitle(result);
@@ -144,18 +142,22 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
         }
     }
 
+    public void setScoreRoundsString(int score, int rounds) {
+        String scoreAndRounds = String.valueOf(score) + " / " + String.valueOf(rounds);
+        scoreTextView.setText(scoreAndRounds);
+    }
 
     public void gameOver() {
 
         //we deactivate the state
-        mPresenter.deactivateState();
+        mPresenter.deactivateGameState();
 
 
         updateScreenTime(getResources().getString(R.string.zero));
 
         switchScreens();
 
-        scoreFinalTextView.setText(mPresenter.getScoreRoundsString());
+        scoreFinalTextView.setText(scoreTextView.getText());
     }
 
 

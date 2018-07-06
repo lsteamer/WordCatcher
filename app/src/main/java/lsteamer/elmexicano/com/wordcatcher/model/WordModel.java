@@ -11,8 +11,8 @@ public class WordModel  {
     @SerializedName("list")
     private ArrayList<WordPair> list;
 
-    public String getGuessElement(int position){
-        return list.get(position).textGuess;
+    public String getFallingElement(int position){
+        return list.get(position).textFalling;
     }
 
     public String getCompareElement(int position){
@@ -29,9 +29,9 @@ public class WordModel  {
 
 
     static private class WordPair {
-        @SerializedName("text_eng")
-        private String textGuess;
-        @SerializedName("text_spa")
+        @SerializedName("falling_word")
+        private String textFalling;
+        @SerializedName("compare_word")
         private String textCompare;
     }
 }

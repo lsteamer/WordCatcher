@@ -7,7 +7,7 @@ public interface MainContract {
 
         void updateScreenTime(String time);
 
-        void updateScreenElements(String score, boolean result, String fallingWord, String matchWord);
+        void updateScreenElements(int score, int rounds, boolean result, String fallingWord, String matchWord);
 
         void setAnimations();
 
@@ -26,14 +26,13 @@ public interface MainContract {
 
         void correctResult();
 
-        void deactivateState();
+        void deactivateGameState();
 
         boolean isGameActive();
-
-        String getScoreRoundsString();
 
         void restartGame();
 
         boolean isGameFirstRound();
+
     }
 }

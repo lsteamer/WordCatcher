@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         
         //Without timer
-        mPresenter = new MainPresenter(mView, gameState, model, new Random());
+        mPresenter = new MainPresenter(mView, gameState, model, new Random(), new DefaultCountDownTimer());
 
 
     }

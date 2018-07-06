@@ -2,216 +2,216 @@
 	"list": [
 	 
 	  {
-	    "text_eng": "warten",
-	    "text_spa": "auf"
+	    "falling_word": "warten",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "denken",
-	    "text_spa": "an"
+	    "falling_word": "denken",
+	    "compare_word": "an"
 	  },
 	  {
-	    "text_eng": "verschwenden",
-	    "text_spa": "mit"
+	    "falling_word": "verschwenden",
+	    "compare_word": "mit"
 	  },
 	  {
-	    "text_eng": "handeln",
-	    "text_spa": "von"
+	    "falling_word": "handeln",
+	    "compare_word": "von"
 	  },
 	  {
-	    "text_eng": "verzichten",
-	    "text_spa": "auf"
+	    "falling_word": "verzichten",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "antworten",
-	    "text_spa": "auf"
+	    "falling_word": "antworten",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "reden",
-	    "text_spa": "mit/über/von"
+	    "falling_word": "reden",
+	    "compare_word": "mit/über/von"
 	  },
 	  {
-	    "text_eng": "sich fürchten",
-	    "text_spa": "vor"
+	    "falling_word": "sich fürchten",
+	    "compare_word": "vor"
 	  },
 	  {
-	    "text_eng": "angst haben",
-	    "text_spa": "vor"
+	    "falling_word": "angst haben",
+	    "compare_word": "vor"
 	  },
 	  {
-	    "text_eng": "sich interessieren",
-	    "text_spa": "für"
+	    "falling_word": "sich interessieren",
+	    "compare_word": "für"
 	  },
 	  {
-	    "text_eng": "hoffen",
-	    "text_spa": "auf"
+	    "falling_word": "hoffen",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "teilnehmen",
-	    "text_spa": "an"
+	    "falling_word": "teilnehmen",
+	    "compare_word": "an"
 	  },
 	  {
-	    "text_eng": "sich kümmern",
-	    "text_spa": "um"
+	    "falling_word": "sich kümmern",
+	    "compare_word": "um"
 	  },
 	  {
-	    "text_eng": "sich freuen",
-	    "text_spa": "auf/über"
+	    "falling_word": "sich freuen",
+	    "compare_word": "auf/über"
 	  },
 	  {
-	    "text_eng": "ausgeben",
-	    "text_spa": "für"
+	    "falling_word": "ausgeben",
+	    "compare_word": "für"
 	  },
 	  {
-	    "text_eng": "stolz sein",
-	    "text_spa": "auf"
+	    "falling_word": "stolz sein",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "nachdenken",
-	    "text_spa": "über"
+	    "falling_word": "nachdenken",
+	    "compare_word": "über"
 	  },
 	  {
-	    "text_eng": "sich gewöhnen",
-	    "text_spa": "an"
+	    "falling_word": "sich gewöhnen",
+	    "compare_word": "an"
 	  },
 	  {
-	    "text_eng": "sich konzentrieren",
-	    "text_spa": "auf"
+	    "falling_word": "sich konzentrieren",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "sich beschweren",
-	    "text_spa": "bei/über"
+	    "falling_word": "sich beschweren",
+	    "compare_word": "bei/über"
 	  },
 	  {
-	    "text_eng": "achten",
-	    "text_spa": "auf"
+	    "falling_word": "achten",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "anfangen",
-	    "text_spa": "mit"
+	    "falling_word": "anfangen",
+	    "compare_word": "mit"
 	  },
 	  {
-	    "text_eng": "sich ärgern",
-	    "text_spa": "über"
+	    "falling_word": "sich ärgern",
+	    "compare_word": "über"
 	  },
 	  {
-	    "text_eng": "aufpassen",
-	    "text_spa": "auf"
+	    "falling_word": "aufpassen",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "sich aufregen",
-	    "text_spa": "über"
+	    "falling_word": "sich aufregen",
+	    "compare_word": "über"
 	  },
 	  {
-	    "text_eng": "bieten",
-	    "text_spa": "für"
+	    "falling_word": "bieten",
+	    "compare_word": "für"
 	  },
 	  {
-	    "text_eng": "beobachten",
-	    "text_spa": "für"
+	    "falling_word": "beobachten",
+	    "compare_word": "für"
 	  },
 	  {
-	    "text_eng": "hervorrufen",
-	    "text_spa": "bei"
+	    "falling_word": "hervorrufen",
+	    "compare_word": "bei"
 	  },
 	  {
-	    "text_eng": "kämpfen",
-	    "text_spa": "für/gegen/mit"
+	    "falling_word": "kämpfen",
+	    "compare_word": "für/gegen/mit"
 	  },
 	  {
 	  	"number": "30",
-	    "text_eng": "berichten",
-	    "text_spa": "über"
+	    "falling_word": "berichten",
+	    "compare_word": "über"
 	  },
 	  {
-	    "text_eng": "interesse haben",
-	    "text_spa": "an"
+	    "falling_word": "interesse haben",
+	    "compare_word": "an"
 	  },
 	  {
-	    "text_eng": "lust haben",
-	    "text_spa": "auf"
+	    "falling_word": "lust haben",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "folgen",
-	    "text_spa": "auf"
+	    "falling_word": "folgen",
+	    "compare_word": "auf"
 	  },
 	  {
-	    "text_eng": "beliebt sein",
-	    "text_spa": "bei"
+	    "falling_word": "beliebt sein",
+	    "compare_word": "bei"
 	  },
 	  {
-	    "text_eng": "freundlich,höfflich/nett sein",
-	    "text_spa": "zu"
+	    "falling_word": "freundlich,höfflich/nett sein",
+	    "compare_word": "zu"
 	  },
 	  {
-	    "text_eng": "zufrieden sein",
-	    "text_spa": "mit"
+	    "falling_word": "zufrieden sein",
+	    "compare_word": "mit"
 	  },
 	  {
-	    "text_eng": "verantwortlich sein",
-	    "text_spa": "für"
+	    "falling_word": "verantwortlich sein",
+	    "compare_word": "für"
 	  },
 	  {
-	    "text_eng": "enttäuscht/begeisteert sein",
-	    "text_spa": "von"
+	    "falling_word": "enttäuscht/begeisteert sein",
+	    "compare_word": "von"
 	  },
 	  {
-	    "text_eng": "träumen",
-	    "text_spa": "von"
+	    "falling_word": "träumen",
+	    "compare_word": "von"
 	  },
 	  {
 	  	"number": "40",
-	    "text_eng": "beginnen",
-	    "text_spa": "mit"
+	    "falling_word": "beginnen",
+	    "compare_word": "mit"
 	  },
 	  {
 	  	"number": "41",
-	    "text_eng": "böse sein",
-	    "text_spa": "auf/zu"
+	    "falling_word": "böse sein",
+	    "compare_word": "auf/zu"
 	  },
 	  {
 	  	"number": "42",
-	    "text_eng": "zweifeln",
-	    "text_spa": "an"
+	    "falling_word": "zweifeln",
+	    "compare_word": "an"
 	  },
 	  {
 	  	"number": "43",
-	    "text_eng": "erwarten",
-	    "text_spa": "von"
+	    "falling_word": "erwarten",
+	    "compare_word": "von"
 	  },
 	  {
 	  	"number": "44",
-	    "text_eng": "interessiert sein",
-	    "text_spa": "an"
+	    "falling_word": "interessiert sein",
+	    "compare_word": "an"
 	  },
 	  {
 	  	"number": "45",
-	    "text_eng": "befreundet sein",
-	    "text_spa": "mit"
+	    "falling_word": "befreundet sein",
+	    "compare_word": "mit"
 	  },
 	  {
 	  	"number": "46",
-	    "text_eng": "sich bedanken",
-	    "text_spa": "bei/für"
+	    "falling_word": "sich bedanken",
+	    "compare_word": "bei/für"
 	  },
 	  {
 	  	"number": "47",
-	    "text_eng": "sich bewerben",
-	    "text_spa": "bei"
+	    "falling_word": "sich bewerben",
+	    "compare_word": "bei"
 	  },
 	  {
 	  	"number": "48",
-	    "text_eng": "danken",
-	    "text_spa": "für"
+	    "falling_word": "danken",
+	    "compare_word": "für"
 	  },
 	  {
 	  	"number": "49",
-	    "text_eng": "diskutieren",
-	    "text_spa": "mit/über"
+	    "falling_word": "diskutieren",
+	    "compare_word": "mit/über"
 	  },
 	  {
 	  	"number": "50",
-	    "text_eng": "sich engagieren",
-	    "text_spa": "für"
+	    "falling_word": "sich engagieren",
+	    "compare_word": "für"
 	  }
 	]
 

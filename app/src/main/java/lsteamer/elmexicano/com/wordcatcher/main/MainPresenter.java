@@ -1,7 +1,6 @@
 package lsteamer.elmexicano.com.wordcatcher.main;
 
 import android.os.CountDownTimer;
-import android.util.Log;
 
 import java.util.Random;
 
@@ -20,7 +19,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private Random rand;
 
     //Constructor with timer
-    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, UICountDownTimer timer, Random random) {
+    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random, UICountDownTimer timer) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
@@ -65,9 +64,9 @@ public class MainPresenter implements MainContract.PresenterLayer {
         boolean matching = Utils.coinFlip(rand);
 
 
-        String compareWord, guessWord;
+        String compareWord, fallingWord;
         int number = Utils.getRandomNumber(rand, numberRange);
-        guessWord = model.getGuessElement(number);
+        fallingWord = model.getFallingElement(number);
 
 
 
@@ -88,10 +87,10 @@ public class MainPresenter implements MainContract.PresenterLayer {
         gState.setMatching(matching);
 
         // setting the words in the gamestate
-        gState.setWordGuess(guessWord);
+        gState.setWordFalling(fallingWord);
         gState.setWordCompare(compareWord);
 
-        vLayer.updateScreenElements(gState.getScoreRoundsString(), gState.isSuccess(), gState.getWordGuess(), gState.getWordCompare());
+        vLayer.updateScreenElements(gState.getScore(), gState.getRounds(), gState.isSuccess(), gState.getWordFalling(), gState.getWordCompare());
     }
 
     public boolean compareWords(String guess, String compare) {
@@ -102,7 +101,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     public void restartGame() {
 
         //set the game state as active again
-        activateState();
+        activateGameState();
 
         //restart the timer
         timer.start();
@@ -142,23 +141,21 @@ public class MainPresenter implements MainContract.PresenterLayer {
         fetchNewWords();
     }
 
-    public String getScoreRoundsString() {
-        return gState.getScoreRoundsString();
-    }
 
     public boolean isGameActive() {
         return gState.isActive();
     }
 
-    public void deactivateState() {
+    public void deactivateGameState() {
         gState.setActive(false);
     }
 
-    public void activateState() {
+    public void activateGameState() {
         gState.setActive(true);
     }
 
     public boolean isGameFirstRound(){ return gState.getRounds()==0;}
+
 
     public interface UICountDownTimer {
         void attach(MainContract.ViewLayer view);

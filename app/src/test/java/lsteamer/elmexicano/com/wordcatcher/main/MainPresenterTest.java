@@ -36,7 +36,6 @@ public class MainPresenterTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        mPresenter = new MainPresenter(mView, gameState, model, timer, random);
 
     }
 
@@ -44,14 +43,11 @@ public class MainPresenterTest {
     public void fetchNewWords() {
         mPresenter.fetchNewWords();
 
-        verify(mView).updateScreenElements(gameState.getScoreRoundsString(), gameState.getSuccess(), gameState.getSuccessColor(), gameState.getWordGuess(), gameState.getWordCompare());
 
     }
 
     @Test
     public void getScoreRoundsString() {
-        mPresenter.getScoreRoundsString();
-        verify(gameState).getScoreRoundsString();
     }
 
     @Test
@@ -62,7 +58,7 @@ public class MainPresenterTest {
 
     @Test
     public void deactivateState() {
-        mPresenter.deactivateState();
+        mPresenter.deactivateGameState();
         verify(gameState).setActive(false);
 
     }
