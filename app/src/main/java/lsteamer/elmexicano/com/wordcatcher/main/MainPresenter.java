@@ -81,7 +81,6 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
             //if it's not the same pair but it matches, it should be flagged as matching
             matching = compareWords(compareWord, model.getCompareElement(number));
-            Log.d("MainPresenter", "This is the compareWord: " + compareWord + " and thia is compareElement "+model.getCompareElement(number));
         }
 
 

@@ -2,14 +2,10 @@ package lsteamer.elmexicano.com.wordcatcher.model;
 
 import android.graphics.Color;
 
-import lsteamer.elmexicano.com.wordcatcher.R;
 
 public class GameState {
 
     //GameState and Logic
-
-
-    //todo modify the color and the words below
 
     // Result Screens
     static final private String SUCCESS = "Correct!";
@@ -73,9 +69,6 @@ public class GameState {
             return 0xff000000 + Integer.parseInt(COLOR_GREEN,16);
         else
             return Color.RED;
-
-        //return getResources().getColor(R.color.colorGreen,null);
-        // return
     }
 
     //is the current pair of words a match?
