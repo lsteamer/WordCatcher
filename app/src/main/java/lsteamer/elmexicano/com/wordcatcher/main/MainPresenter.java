@@ -1,6 +1,7 @@
 package lsteamer.elmexicano.com.wordcatcher.main;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -68,6 +69,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
         int number = Utils.getRandomNumber(rand, numberRange);
         guessWord = model.getGuessElement(number);
 
+
+
         //Getting our words
         if (matching) {
             //Getting a comparing word that matches
@@ -77,7 +80,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
             compareWord = model.getCompareElement(Utils.getRandomNumber(rand, numberRange, number));
 
             //if it's not the same pair but it matches, it should be flagged as matching
-            matching = compareWords(guessWord, model.getCompareElement(number));
+            matching = compareWords(compareWord, model.getCompareElement(number));
+            Log.d("MainPresenter", "This is the compareWord: " + compareWord + " and thia is compareElement "+model.getCompareElement(number));
         }
 
 
@@ -92,8 +96,8 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     public boolean compareWords(String guess, String compare) {
+        return(guess.equals(compare));
 
-        return (guess.equals(compare));
     }
 
     public void restartGame() {

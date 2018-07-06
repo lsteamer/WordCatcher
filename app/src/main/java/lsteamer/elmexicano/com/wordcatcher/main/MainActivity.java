@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         //GameState created
         gameState = new GameState(model.getArraySize(), false);
+
+
+
     }
 
     @OnClick(R.id.startGame)
