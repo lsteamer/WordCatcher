@@ -51,7 +51,6 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
 
 
     public MainFragmentView() {
-        //this.titleGameMessage = new String[]{getString(R.string.success),getString(R.string.failure),getString(R.string.start_message)};
     }
 
     public static MainFragmentView newInstance() {
@@ -68,7 +67,7 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_fragment_view, container, false);
+        View view = inflater.inflate(R.layout.play_fragment_view, container, false);
 
         //setting the animation
         setAnimations();

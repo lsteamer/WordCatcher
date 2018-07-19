@@ -19,7 +19,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private Random rand;
 
     //Constructor with timer
-    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random, UICountDownTimer timer) {
+    public MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random, UICountDownTimer timer) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
@@ -40,7 +40,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     //Constructor without timer
-    MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
+    public MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
@@ -93,7 +93,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         vLayer.updateScreenElements(gState.getScore(), gState.getRounds(), gState.isSuccess(), gState.getWordFalling(), gState.getWordCompare());
     }
 
-    public boolean compareWords(String guess, String compare) {
+    private boolean compareWords(String guess, String compare) {
         return(guess.equals(compare));
 
     }
@@ -116,7 +116,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         fetchNewWords();
     }
 
-    public void clearValues() {
+    private void clearValues() {
         gState.setScore(0);
         gState.setRounds(0);
     }
@@ -150,7 +150,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
         gState.setActive(false);
     }
 
-    public void activateGameState() {
+    private void activateGameState() {
         gState.setActive(true);
     }
 

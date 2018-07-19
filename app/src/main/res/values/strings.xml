@@ -14,4 +14,6 @@
     <string name="success">"Correct!"</string>
     <string name="failure">"Wrong"</string>
     <string name="start_message">"Let's go!"</string>
+    <string name="desc">Image of the world with flags coming out.</string>
+    <string name="finishing_screen">Finishing screen</string>
 </resources>
