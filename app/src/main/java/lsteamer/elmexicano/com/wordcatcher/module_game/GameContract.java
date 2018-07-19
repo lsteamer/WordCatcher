@@ -1,9 +1,9 @@
-package lsteamer.elmexicano.com.wordcatcher.main;
+package lsteamer.elmexicano.com.wordcatcher.module_game;
 
-public interface MainContract {
+public interface GameContract {
 
     interface ViewLayer {
-        void setPresenter(MainContract.PresenterLayer presenter);
+        void setPresenter(GameContract.PresenterLayer presenter);
 
         void updateScreenTime(String time);
 

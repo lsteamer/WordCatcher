@@ -1,4 +1,4 @@
-package lsteamer.elmexicano.com.wordcatcher.main;
+package lsteamer.elmexicano.com.wordcatcher.module_game;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,10 +23,10 @@ import lsteamer.elmexicano.com.wordcatcher.R;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
 
-public class MainFragmentView extends Fragment implements Animation.AnimationListener, MainContract.ViewLayer {
+public class GameFragmentView extends Fragment implements Animation.AnimationListener, GameContract.ViewLayer {
 
 
-    private MainContract.PresenterLayer mPresenter;
+    private GameContract.PresenterLayer mPresenter;
 
     // Binding View Elements with Butterknife
     @BindView(R.id.timerTextView)
@@ -50,16 +50,16 @@ public class MainFragmentView extends Fragment implements Animation.AnimationLis
     Animation animationFall, animationReset;
 
 
-    public MainFragmentView() {
+    public GameFragmentView() {
     }
 
-    public static MainFragmentView newInstance() {
-        return new MainFragmentView();
+    public static GameFragmentView newInstance() {
+        return new GameFragmentView();
     }
 
 
     @Override
-    public void setPresenter(@NonNull MainContract.PresenterLayer presenter) {
+    public void setPresenter(@NonNull GameContract.PresenterLayer presenter) {
         this.mPresenter = checkNotNull(presenter);
     }
 

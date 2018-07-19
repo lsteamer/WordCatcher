@@ -1,4 +1,4 @@
-package lsteamer.elmexicano.com.wordcatcher.main;
+package lsteamer.elmexicano.com.wordcatcher.module_game;
 
 import android.os.CountDownTimer;
 
@@ -8,10 +8,10 @@ import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
-public class MainPresenter implements MainContract.PresenterLayer {
+public class GamePresenter implements GameContract.PresenterLayer {
 
 
-    private MainContract.ViewLayer vLayer;
+    private GameContract.ViewLayer vLayer;
     private WordModel model;
     private GameState gState;
     private int numberRange;
@@ -19,7 +19,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     private Random rand;
 
     //Constructor with timer
-    public MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random, UICountDownTimer timer) {
+    public GamePresenter(GameContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random, UICountDownTimer timer) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
@@ -40,7 +40,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
     }
 
     //Constructor without timer
-    public MainPresenter(MainContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
+    public GamePresenter(GameContract.ViewLayer view, GameState gameState, WordModel wordModel, Random random) {
         this.vLayer = view;
         this.gState = gameState;
         this.model = wordModel;
@@ -158,7 +158,7 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
 
     public interface UICountDownTimer {
-        void attach(MainContract.ViewLayer view);
+        void attach(GameContract.ViewLayer view);
 
         void start();
 
@@ -169,11 +169,11 @@ public class MainPresenter implements MainContract.PresenterLayer {
 
 
 // CountDownTimer class to keep Presenter testable, time provided.
-class DefaultCountDownTimer implements MainPresenter.UICountDownTimer {
+class DefaultCountDownTimer implements GamePresenter.UICountDownTimer {
 
     private CountDownTimer timer;
 
-    public void attach(final MainContract.ViewLayer view) {
+    public void attach(final GameContract.ViewLayer view) {
         timer = new CountDownTimer(46000, 1000) {
             @Override
             public void onTick(long l) {

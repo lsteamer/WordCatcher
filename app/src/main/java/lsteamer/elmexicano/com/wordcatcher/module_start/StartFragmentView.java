@@ -1,4 +1,4 @@
-package lsteamer.elmexicano.com.wordcatcher.start;
+package lsteamer.elmexicano.com.wordcatcher.module_start;
 
 
 import android.os.Bundle;
@@ -9,15 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.Random;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import lsteamer.elmexicano.com.wordcatcher.R;
-import lsteamer.elmexicano.com.wordcatcher.main.MainFragmentView;
-import lsteamer.elmexicano.com.wordcatcher.main.MainPresenter;
+import lsteamer.elmexicano.com.wordcatcher.module_game.GameFragmentView;
+import lsteamer.elmexicano.com.wordcatcher.module_game.GamePresenter;
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
@@ -27,8 +26,8 @@ public class StartFragmentView extends Fragment {
 
 
     //Presenter and View Layers
-    private MainPresenter mPresenter;
-    private MainFragmentView mView;
+    private GamePresenter mPresenter;
+    private GameFragmentView mView;
     private WordModel model;
     private GameState gameState;
 
@@ -55,9 +54,9 @@ public class StartFragmentView extends Fragment {
         Log.d("Am I ", "yes you");
 
         //ViewLayer
-        mView = (MainFragmentView) getActivity().getSupportFragmentManager().findFragmentById(R.id.startContentFrame);
+        mView = (GameFragmentView) getActivity().getSupportFragmentManager().findFragmentById(R.id.startContentFrame);
         if (mView == null) {
-            mView = MainFragmentView.newInstance();
+            mView = GameFragmentView.newInstance();
             Utils.addFragmentToActivity(getActivity().getSupportFragmentManager(), mView, R.id.startContentFrame);
         }
 
@@ -70,15 +69,13 @@ public class StartFragmentView extends Fragment {
         gameState.setActive(true);
 
         //Without timer
-        mPresenter = new MainPresenter(mView, gameState, model, new Random());
+        mPresenter = new GamePresenter(mView, gameState, model, new Random());
 
     }
 
     @OnClick(R.id.settingsButton)
     void openSettings(){
 
-        Log.d("Am I ", "yes you");
-        Toast.makeText(getContext(), "WATE",Toast.LENGTH_LONG).show();
 
 
     }
