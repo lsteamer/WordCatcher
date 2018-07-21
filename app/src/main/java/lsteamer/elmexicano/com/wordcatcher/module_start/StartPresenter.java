@@ -5,7 +5,7 @@ import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GameFragmentView;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GamePresenter;
 
-public class StartPresenter {
+public class StartPresenter implements StartContract.PresenterLayer{
 
 
     //Presenter and View Layers
@@ -14,7 +14,7 @@ public class StartPresenter {
     private WordModel model;
     private GameState gameState;
 
-    private StartFragmentView mView;
+    private StartContract.ViewLayer mView;
 
     public StartPresenter(GamePresenter mGamePresenter, GameFragmentView mGameView, WordModel model, GameState gameState, StartFragmentView mView) {
         this.mGamePresenter = mGamePresenter;
@@ -23,7 +23,6 @@ public class StartPresenter {
         this.gameState = gameState;
         this.mView = mView;
 
-
-        //mView.setPresenter(this);
+        mView.setPresenter(this);
     }
 }

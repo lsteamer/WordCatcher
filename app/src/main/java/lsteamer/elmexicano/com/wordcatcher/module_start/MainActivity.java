@@ -1,4 +1,4 @@
-package lsteamer.elmexicano.com.wordcatcher;
+package lsteamer.elmexicano.com.wordcatcher.module_start;
 
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -6,12 +6,11 @@ import android.os.Bundle;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lsteamer.elmexicano.com.wordcatcher.R;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GameFragmentView;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GamePresenter;
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
-import lsteamer.elmexicano.com.wordcatcher.module_start.StartFragmentView;
-import lsteamer.elmexicano.com.wordcatcher.module_start.StartPresenter;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
     CoordinatorLayout playLayout;
 
     //Presenter and View Layers
-    private GamePresenter mPresenter;
-    private GameFragmentView mView;
-
     private StartFragmentView mStartView;
     private StartPresenter mStartPresenter;
 

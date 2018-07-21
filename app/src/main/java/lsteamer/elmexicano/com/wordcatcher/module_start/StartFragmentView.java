@@ -21,12 +21,13 @@ import lsteamer.elmexicano.com.wordcatcher.model.GameState;
 import lsteamer.elmexicano.com.wordcatcher.model.WordModel;
 import lsteamer.elmexicano.com.wordcatcher.util.Utils;
 
-public class StartFragmentView extends Fragment {
+public class StartFragmentView extends Fragment implements StartContract.ViewLayer {
 
 
 
     //Presenter and View Layers
-    private GamePresenter mPresenter;
+    private StartContract.PresenterLayer mPresenter;
+    private GamePresenter gamePresenter;
     private GameFragmentView mView;
     private WordModel model;
     private GameState gameState;
@@ -47,29 +48,16 @@ public class StartFragmentView extends Fragment {
         return view;
     }
 
+    @Override
+    public void setPresenter(StartContract.PresenterLayer presenter) {
+        this.mPresenter = presenter;
+    }
+
 
     @OnClick(R.id.startGame)
     void startGame(){
 
         Log.d("Am I ", "yes you");
-
-        //ViewLayer
-        mView = (GameFragmentView) getActivity().getSupportFragmentManager().findFragmentById(R.id.startContentFrame);
-        if (mView == null) {
-            mView = GameFragmentView.newInstance();
-            Utils.addFragmentToActivity(getActivity().getSupportFragmentManager(), mView, R.id.startContentFrame);
-        }
-
-        //Reading the model
-        model = Utils.readJsonFile(getContext(), R.raw.deutsch_b1_verben);
-
-        //GameState created
-        gameState = new GameState(model.getArraySize(), false);
-
-        gameState.setActive(true);
-
-        //Without timer
-        mPresenter = new GamePresenter(mView, gameState, model, new Random());
 
     }
 

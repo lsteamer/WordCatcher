@@ -4,36 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module_start.MainActivity">
+    tools:context=".module_game.GameActivity">
 
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
+        android:id="@+id/gameCoordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <FrameLayout
-            android:id="@+id/contentFrame"
+            android:id="@+id/gameContentFrame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </FrameLayout>
 
     </android.support.design.widget.CoordinatorLayout>
-
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/startCoordinatorLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:id="@+id/startContentFrame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
-
-    </android.support.design.widget.CoordinatorLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>
