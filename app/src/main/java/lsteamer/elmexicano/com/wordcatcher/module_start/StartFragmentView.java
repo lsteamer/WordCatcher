@@ -1,20 +1,19 @@
 package lsteamer.elmexicano.com.wordcatcher.module_start;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Random;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import lsteamer.elmexicano.com.wordcatcher.R;
+import lsteamer.elmexicano.com.wordcatcher.module_game.GameActivity;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GameFragmentView;
 import lsteamer.elmexicano.com.wordcatcher.module_game.GamePresenter;
 import lsteamer.elmexicano.com.wordcatcher.model.GameState;
@@ -40,7 +39,7 @@ public class StartFragmentView extends Fragment implements StartContract.ViewLay
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.game_fragment_view, container, false);
+        View view = inflater.inflate(R.layout.start_fragment_view, container, false);
 
 
         ButterKnife.bind(this,view);
@@ -56,8 +55,8 @@ public class StartFragmentView extends Fragment implements StartContract.ViewLay
 
     @OnClick(R.id.startGame)
     void startGame(){
-
-        Log.d("Am I ", "yes you");
+        Intent gameIntent = Utils.getIntent(getActivity(), GameActivity.class);
+        getActivity().startActivity(gameIntent);
 
     }
 

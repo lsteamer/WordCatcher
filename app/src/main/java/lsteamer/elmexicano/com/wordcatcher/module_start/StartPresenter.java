@@ -25,4 +25,5 @@ public class StartPresenter implements StartContract.PresenterLayer{
 
         mView.setPresenter(this);
     }
+
 }

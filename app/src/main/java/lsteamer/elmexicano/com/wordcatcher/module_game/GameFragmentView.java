@@ -39,8 +39,7 @@ public class GameFragmentView extends Fragment implements Animation.AnimationLis
     TextView fallingTextView;
     @BindView(R.id.matchTextView)
     TextView matchTextView;
-    @BindView(R.id.layoutBottom)
-    ConstraintLayout constraintLayoutBottom;
+
     @BindView(R.id.linearLayoutEndScreen)
     LinearLayout linearLayoutEndScreen;
     @BindView(R.id.scoreFinalTextView)
@@ -67,7 +66,7 @@ public class GameFragmentView extends Fragment implements Animation.AnimationLis
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.play_fragment_view, container, false);
+        View view = inflater.inflate(R.layout.game_fragment_view2, container, false);
 
         //setting the animation
         setAnimations();
@@ -174,7 +173,6 @@ public class GameFragmentView extends Fragment implements Animation.AnimationLis
 
             //set the Falling text the Layout at the bottom and the result view as active
             fallingTextView.setVisibility(View.VISIBLE);
-            constraintLayoutBottom.setVisibility(View.VISIBLE);
             resultTextView.setVisibility(View.VISIBLE);
         } else {
             //if the game is inactive
@@ -182,7 +180,6 @@ public class GameFragmentView extends Fragment implements Animation.AnimationLis
             //clear animation and hide views
             fallingTextView.clearAnimation();
             fallingTextView.setVisibility(View.GONE);
-            constraintLayoutBottom.setVisibility(View.GONE);
             resultTextView.setVisibility(View.GONE);
 
             //make the End screen visible

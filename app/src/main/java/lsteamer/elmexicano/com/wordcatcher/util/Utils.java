@@ -1,6 +1,8 @@
 package lsteamer.elmexicano.com.wordcatcher.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -53,6 +55,11 @@ public class Utils {
             randInt = rand.nextInt(range);
         }
         return randInt;
+    }
+
+    public static Intent getIntent(Activity activity, Class classToStart) {
+        return new Intent(activity, classToStart);
+
     }
 
 
